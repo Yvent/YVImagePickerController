@@ -11,128 +11,56 @@ import Photos
 class ViewController: UIViewController {
 
     
-    var addImageBtn: UIButton!
+
+    var yvTableView: UITableView!
     
-    var showImagesView: UICollectionView!
+    let yvNameOfClasses: Array<Dictionary<String,UIViewController.Type>> = [["单选图片":SingleSelectionImageVC.self],["单选视频":SingleSelectionVideoVC.self],["多选图片":MultiSelectImageVC.self]]
     
-    let columns: Int = 4
-    
-    var imagePHAssets: Array<PHAsset> = Array<PHAsset>()
-    
-    
-    lazy var pickerPhotoSize:CGSize = {
-        let sreenBounds = UIScreen.main.bounds
-        let screenWidth = sreenBounds.width > sreenBounds.height ? sreenBounds.height : sreenBounds.width
-        let width = (screenWidth - CGFloat(2) * (CGFloat(2) - 1)) / CGFloat(3)
-        return CGSize(width: width, height: width)
-    }()
-    var photoManage:PHImageManager!
-    var photoOption: PHImageRequestOptions!
+//    ,["多选图片并合成幻灯片":MultiSelectImageToVideoVC.self]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.brown
         initUI()
-        
+      
     }
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func initUI() {
-        self.photoManage = PHImageManager()
-        self.photoOption = PHImageRequestOptions()
-        self.photoOption.resizeMode   = .fast
-        self.photoOption.deliveryMode = .opportunistic
         
-        
-        addImageBtn = UIButton(frame:  CGRect(x: 0, y: 0, width: ScreenWidth, height: 64))
-        addImageBtn.setTitle("添加照片", for: .normal)
-        addImageBtn.addTarget(self, action: #selector(ViewController.didAddImageBtn), for: .touchUpInside)
-        
-        let layout = UICollectionViewFlowLayout()
-        
-        let yvitemSize = CGSize(width: (ScreenWidth-CGFloat(columns-1))/CGFloat(columns), height: (ScreenWidth-CGFloat(columns-1))/CGFloat(columns))
-        layout.itemSize = yvitemSize
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 0
-        let imageCollVFrame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
-        
-        showImagesView = UICollectionView(frame: imageCollVFrame, collectionViewLayout: layout)
-        showImagesView.backgroundColor = UIColor.white
-        
-        showImagesView.delegate = self
-        showImagesView.dataSource = self
-        self.view.addSubview(addImageBtn)
-        self.view.addSubview(showImagesView)
-        showImagesView.register(YVImagePickerCell.self, forCellWithReuseIdentifier: "YVImagePickerCell")
-        
+        self.title = "YVImagePickerController"
+        yvTableView = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight), style: .plain)
+        yvTableView.rowHeight = 60
+        yvTableView.delegate = self
+        yvTableView.dataSource = self
+        yvTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        self.view.addSubview(yvTableView)
     }
-    
-    func didAddImageBtn() {
-        /*
-         照片
-         每行5列
-         多选
-         */
-        let pickerVC = YVImagePickerController()
-        pickerVC.yvmediaType = .image
-        pickerVC.yvcolumns = 5
-        pickerVC.yvIsMultiselect = true
-        pickerVC.delegate = self
-        self.present(pickerVC, animated: true, completion: nil)
-    }
-    
     
 }
-extension ViewController:  YVImagePickerControllerDelegate {
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
-    func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-        //多选照片
-        if info["imagedatas"] != nil{
-            let phassets = info["imagedatas"] as! Array<PHAsset>
-            self.imagePHAssets = phassets
-            
-            self.showImagesView.reloadData()
-        }
-        
-        
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return yvNameOfClasses.count
     }
-    func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagePHAssets.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImagePickerCell", for: indexPath) as! YVImagePickerCell
-        let asset = imagePHAssets[indexPath.row]
-        cell.tag = Int(
-           
-            self.photoManage.requestImage(for: asset, targetSize: pickerPhotoSize, contentMode: .aspectFit, options: photoOption, resultHandler: { (result, info) in
-                if result != nil {
-                    if (info?["PHImageResultIsDegradedKey"] as! Bool) == true {
-                        
-                    }else{
-                        cell.imageV.image = result!
-                    }
-                }
-            })
-        )
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.text = yvNameOfClasses[indexPath.row].keys.first
         return cell
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+       let vcT =  yvNameOfClasses[indexPath.row].values.first
+        let vc = vcT?.init()
+        vc?.title = yvNameOfClasses[indexPath.row].keys.first
+       self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
 }
+
+

@@ -9,21 +9,37 @@
 /* Begin PBXBuildFile section */
 		42CDB4FF1F8DF4C000A25E1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB4FE1F8DF4C000A25E1B /* AppDelegate.swift */; };
 		42CDB5011F8DF4C000A25E1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB5001F8DF4C000A25E1B /* ViewController.swift */; };
-		42CDB5041F8DF4C000A25E1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CDB5021F8DF4C000A25E1B /* Main.storyboard */; };
 		42CDB5061F8DF4C000A25E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42CDB5051F8DF4C000A25E1B /* Assets.xcassets */; };
 		42CDB5091F8DF4C000A25E1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CDB5071F8DF4C000A25E1B /* LaunchScreen.storyboard */; };
 		42CDB5111F8DF4D500A25E1B /* YVImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */; };
+		42FFE5961F8F580400C3E2EE /* YVImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */; };
+		42FFE59A1F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */; };
+		42FFE59C1F8F65DD00C3E2EE /* SingleSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59B1F8F65DD00C3E2EE /* SingleSelectionVC.swift */; };
+		42FFE59E1F8F664500C3E2EE /* SingleSelectionVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59D1F8F664500C3E2EE /* SingleSelectionVideoVC.swift */; };
+		42FFE5A01F8F6BBD00C3E2EE /* MultiSelectImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59F1F8F6BBD00C3E2EE /* MultiSelectImageVC.swift */; };
+		42FFE5A21F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5A11F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift */; };
+		512906DA3CB4CA401975A837 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C58271AE3DFCC4752B0A32A /* Pods_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C58271AE3DFCC4752B0A32A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C314AEC3A963126C9C2D1E7 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		42CDB4FB1F8DF4C000A25E1B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CDB4FE1F8DF4C000A25E1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42CDB5001F8DF4C000A25E1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		42CDB5031F8DF4C000A25E1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42CDB5051F8DF4C000A25E1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42CDB5081F8DF4C000A25E1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42CDB50A1F8DF4C000A25E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVImagePickerController.swift; sourceTree = "<group>"; };
+		42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVImagePickerCell.swift; sourceTree = "<group>"; };
+		42FFE5971F8F5AD500C3E2EE /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		42FFE5981F8F5AD500C3E2EE /* UIImage+RSKImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RSKImageCropper.h"; sourceTree = "<group>"; };
+		42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RSKImageCropper.m"; sourceTree = "<group>"; };
+		42FFE59B1F8F65DD00C3E2EE /* SingleSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionVC.swift; sourceTree = "<group>"; };
+		42FFE59D1F8F664500C3E2EE /* SingleSelectionVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionVideoVC.swift; sourceTree = "<group>"; };
+		42FFE59F1F8F6BBD00C3E2EE /* MultiSelectImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectImageVC.swift; sourceTree = "<group>"; };
+		42FFE5A11F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectImageToVideoVC.swift; sourceTree = "<group>"; };
+		9305A05B19DDBC12132B3CD6 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512906DA3CB4CA401975A837 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302657CBEDC43B3D5FBF5321 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C314AEC3A963126C9C2D1E7 /* Pods-Demo.debug.xcconfig */,
+				9305A05B19DDBC12132B3CD6 /* Pods-Demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		42CDB4F21F8DF4C000A25E1B = {
 			isa = PBXGroup;
 			children = (
 				42CDB4FD1F8DF4C000A25E1B /* Demo */,
 				42CDB4FC1F8DF4C000A25E1B /* Products */,
+				302657CBEDC43B3D5FBF5321 /* Pods */,
+				CF731D4DBE3F94DF55C0B5EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +84,38 @@
 		42CDB4FD1F8DF4C000A25E1B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */,
+				42FFE5A31F8F789900C3E2EE /* YVImagePickerController */,
 				42CDB4FE1F8DF4C000A25E1B /* AppDelegate.swift */,
 				42CDB5001F8DF4C000A25E1B /* ViewController.swift */,
-				42CDB5021F8DF4C000A25E1B /* Main.storyboard */,
 				42CDB5051F8DF4C000A25E1B /* Assets.xcassets */,
 				42CDB5071F8DF4C000A25E1B /* LaunchScreen.storyboard */,
 				42CDB50A1F8DF4C000A25E1B /* Info.plist */,
+				42FFE5971F8F5AD500C3E2EE /* Demo-Bridging-Header.h */,
+				42FFE59B1F8F65DD00C3E2EE /* SingleSelectionVC.swift */,
+				42FFE59D1F8F664500C3E2EE /* SingleSelectionVideoVC.swift */,
+				42FFE59F1F8F6BBD00C3E2EE /* MultiSelectImageVC.swift */,
+				42FFE5A11F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		42FFE5A31F8F789900C3E2EE /* YVImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				42FFE5981F8F5AD500C3E2EE /* UIImage+RSKImageCropper.h */,
+				42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */,
+				42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */,
+				42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */,
+			);
+			name = YVImagePickerController;
+			sourceTree = "<group>";
+		};
+		CF731D4DBE3F94DF55C0B5EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C58271AE3DFCC4752B0A32A /* Pods_Demo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42CDB50D1F8DF4C000A25E1B /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
+				F1976674BBC1D5AE6478DDB8 /* [CP] Check Pods Manifest.lock */,
 				42CDB4F71F8DF4C000A25E1B /* Sources */,
 				42CDB4F81F8DF4C000A25E1B /* Frameworks */,
 				42CDB4F91F8DF4C000A25E1B /* Resources */,
+				9D8794446B7BEBDF333C21DC /* [CP] Embed Pods Frameworks */,
+				C0F65B8DE8B9B41CF683BB91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +154,7 @@
 					42CDB4FA1F8DF4C000A25E1B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S2T4S76962;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -129,19 +184,72 @@
 			files = (
 				42CDB5091F8DF4C000A25E1B /* LaunchScreen.storyboard in Resources */,
 				42CDB5061F8DF4C000A25E1B /* Assets.xcassets in Resources */,
-				42CDB5041F8DF4C000A25E1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D8794446B7BEBDF333C21DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0F65B8DE8B9B41CF683BB91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1976674BBC1D5AE6478DDB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42CDB4F71F8DF4C000A25E1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FFE59E1F8F664500C3E2EE /* SingleSelectionVideoVC.swift in Sources */,
+				42FFE5A21F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift in Sources */,
 				42CDB5111F8DF4D500A25E1B /* YVImagePickerController.swift in Sources */,
+				42FFE5A01F8F6BBD00C3E2EE /* MultiSelectImageVC.swift in Sources */,
 				42CDB5011F8DF4C000A25E1B /* ViewController.swift in Sources */,
+				42FFE5961F8F580400C3E2EE /* YVImagePickerCell.swift in Sources */,
+				42FFE59C1F8F65DD00C3E2EE /* SingleSelectionVC.swift in Sources */,
+				42FFE59A1F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m in Sources */,
 				42CDB4FF1F8DF4C000A25E1B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,14 +257,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		42CDB5021F8DF4C000A25E1B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42CDB5031F8DF4C000A25E1B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		42CDB5071F8DF4C000A25E1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,26 +363,33 @@
 		};
 		42CDB50E1F8DF4C000A25E1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C314AEC3A963126C9C2D1E7 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = S2T4S76962;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YV.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		42CDB50F1F8DF4C000A25E1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9305A05B19DDBC12132B3CD6 /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = S2T4S76962;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YV.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -306,6 +413,7 @@
 				42CDB50F1F8DF4C000A25E1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
