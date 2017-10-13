@@ -1,5 +1,5 @@
 # YVImagePickerController
-支持单选，多选，视频和图片，多图合成幻灯片
+iOS -  支持单选，多选，视频和图片，多图合成幻灯片
 
 ![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/demo.png)
 
