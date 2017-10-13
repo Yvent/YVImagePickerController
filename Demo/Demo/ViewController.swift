@@ -14,10 +14,8 @@ class ViewController: UIViewController {
 
     var yvTableView: UITableView!
     
-    let yvNameOfClasses: Array<Dictionary<String,UIViewController.Type>> = [["单选图片":SingleSelectionImageVC.self],["单选视频":SingleSelectionVideoVC.self],["多选图片":MultiSelectImageVC.self]]
-    
-//    ,["多选图片并合成幻灯片":MultiSelectImageToVideoVC.self]
-    
+    let yvNameOfClasses: Array<Dictionary<String,UIViewController.Type>> = [["单选图片":SingleSelectionImageVC.self],["单选视频":SingleSelectionVideoVC.self],["多选图片":MultiSelectImageVC.self],["多选图片并合成幻灯片":MultiSelectImageToVideoVC.self]]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()

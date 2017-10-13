@@ -12,7 +12,7 @@ import SVProgressHUD
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
-let YvNavColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
+
 
 
 protocol YVImagePickerControllerDelegate: class {
@@ -49,6 +49,10 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     var yvmediaType: yvMediaType = .image
     ///是否多选，默认单选
     var yvIsMultiselect: Bool! = false
+    ///多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
+    var isEditImages: Bool = false
+    
+    
     var topView: UIView!
     weak var delegate: YVImagePickerControllerDelegate!
     
@@ -268,9 +272,10 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         self.view.addSubview(photoAlbumTab)
         photoAlbumBtn.isSelected = true
     }
+    //多选照片是下一步
     func didnextBtn() {
         if selectedAssets.count != 0 {
-            self.phassetsToImages(selectedAssets)
+            isEditImages == true ? self.preToEditor(selectedAssets) : self.phassetsToImages(selectedAssets)
         }else{
             self.addReminder(title: "请选择照片")
         }
@@ -458,6 +463,15 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
                 }
             })
         }
+    }
+    
+    func preToEditor(_ phassets: Array<PHAsset>)  {
+  
+        if self.delegate != nil {
+            self.delegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": phassets])
+        }
+        
+        
     }
 }
 extension Float{

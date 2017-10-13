@@ -62,6 +62,7 @@ class MultiSelectImageVC: UIViewController, YVImagePickerControllerDelegate {
         pickerVC.yvcolumns = 4
         pickerVC.yvIsMultiselect = true
         pickerVC.delegate = self
+        pickerVC.isEditImages = false
         self.present(pickerVC, animated: true, completion: nil)
     }
     

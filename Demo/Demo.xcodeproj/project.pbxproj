@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42C10C331F90A47400A527DA /* YVImageEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C10C321F90A47400A527DA /* YVImageEditorController.swift */; };
+		42C10C351F90A6F400A527DA /* YVNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C10C341F90A6F400A527DA /* YVNavigationView.swift */; };
+		42C10C371F90AC0600A527DA /* WSImageEditorCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C10C361F90AC0600A527DA /* WSImageEditorCollVCell.swift */; };
+		42C10C3A1F90BAAD00A527DA /* CXEImagesToVideoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C10C381F90BAAD00A527DA /* CXEImagesToVideoSync.swift */; };
+		42C10C3B1F90BAAD00A527DA /* CXEImagesToVideoAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C10C391F90BAAD00A527DA /* CXEImagesToVideoAsync.swift */; };
 		42CDB4FF1F8DF4C000A25E1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB4FE1F8DF4C000A25E1B /* AppDelegate.swift */; };
 		42CDB5011F8DF4C000A25E1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB5001F8DF4C000A25E1B /* ViewController.swift */; };
 		42CDB5061F8DF4C000A25E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42CDB5051F8DF4C000A25E1B /* Assets.xcassets */; };
@@ -24,6 +29,11 @@
 /* Begin PBXFileReference section */
 		0C58271AE3DFCC4752B0A32A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C314AEC3A963126C9C2D1E7 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		42C10C321F90A47400A527DA /* YVImageEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVImageEditorController.swift; sourceTree = "<group>"; };
+		42C10C341F90A6F400A527DA /* YVNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVNavigationView.swift; sourceTree = "<group>"; };
+		42C10C361F90AC0600A527DA /* WSImageEditorCollVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSImageEditorCollVCell.swift; sourceTree = "<group>"; };
+		42C10C381F90BAAD00A527DA /* CXEImagesToVideoSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXEImagesToVideoSync.swift; sourceTree = "<group>"; };
+		42C10C391F90BAAD00A527DA /* CXEImagesToVideoAsync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXEImagesToVideoAsync.swift; sourceTree = "<group>"; };
 		42CDB4FB1F8DF4C000A25E1B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CDB4FE1F8DF4C000A25E1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42CDB5001F8DF4C000A25E1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,10 +112,15 @@
 		42FFE5A31F8F789900C3E2EE /* YVImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
+				42C10C381F90BAAD00A527DA /* CXEImagesToVideoSync.swift */,
+				42C10C391F90BAAD00A527DA /* CXEImagesToVideoAsync.swift */,
 				42FFE5981F8F5AD500C3E2EE /* UIImage+RSKImageCropper.h */,
 				42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */,
 				42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */,
 				42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */,
+				42C10C361F90AC0600A527DA /* WSImageEditorCollVCell.swift */,
+				42C10C321F90A47400A527DA /* YVImageEditorController.swift */,
+				42C10C341F90A6F400A527DA /* YVNavigationView.swift */,
 			);
 			name = YVImagePickerController;
 			sourceTree = "<group>";
@@ -242,15 +257,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C10C3B1F90BAAD00A527DA /* CXEImagesToVideoAsync.swift in Sources */,
 				42FFE59E1F8F664500C3E2EE /* SingleSelectionVideoVC.swift in Sources */,
 				42FFE5A21F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift in Sources */,
 				42CDB5111F8DF4D500A25E1B /* YVImagePickerController.swift in Sources */,
+				42C10C3A1F90BAAD00A527DA /* CXEImagesToVideoSync.swift in Sources */,
+				42C10C331F90A47400A527DA /* YVImageEditorController.swift in Sources */,
 				42FFE5A01F8F6BBD00C3E2EE /* MultiSelectImageVC.swift in Sources */,
 				42CDB5011F8DF4C000A25E1B /* ViewController.swift in Sources */,
 				42FFE5961F8F580400C3E2EE /* YVImagePickerCell.swift in Sources */,
 				42FFE59C1F8F65DD00C3E2EE /* SingleSelectionVC.swift in Sources */,
 				42FFE59A1F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m in Sources */,
+				42C10C351F90A6F400A527DA /* YVNavigationView.swift in Sources */,
 				42CDB4FF1F8DF4C000A25E1B /* AppDelegate.swift in Sources */,
+				42C10C371F90AC0600A527DA /* WSImageEditorCollVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

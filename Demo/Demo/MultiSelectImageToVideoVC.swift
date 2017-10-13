@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Photos
 
-class MultiSelectImageToVideoVC: UIViewController {
+class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelegate {
 
+    
+    
+    var player: AVPlayer!
+    var playerLayer: AVPlayerLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -30,6 +35,42 @@ class MultiSelectImageToVideoVC: UIViewController {
     }
     func navRightItemClicked()  {
         
+        let pickerVC = YVImagePickerController()
+        pickerVC.yvmediaType = .image
+        pickerVC.yvcolumns = 4
+        pickerVC.yvIsMultiselect = true
+        pickerVC.delegate = self
+        pickerVC.isEditImages = true
+        self.present(pickerVC, animated: true, completion: nil)
     }
-
+    
+    func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        if info["imagedatas"] != nil{
+            let phassets = info["imagedatas"] as! Array<PHAsset>
+            
+                    let vc = YVImageEditorController()
+            
+                    vc.phassets = phassets
+                      vc.cellsize = CGSize(width: 200, height: 200)
+            vc.finished = { [weak self] (fileURL,assets) in
+                
+                let playerItem = AVPlayerItem(url:  fileURL)
+                self?.player = AVPlayer(playerItem: playerItem)
+                self?.playerLayer = AVPlayerLayer(player: self?.player)
+                self?.playerLayer.backgroundColor = UIColor.gray.cgColor
+                self?.playerLayer.frame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
+                self?.view.layer.addSublayer((self?.playerLayer)!)
+                self?.player.play()
+                
+                
+            }
+                    self.present(vc, animated: true, completion: nil)
+          
+        }
+    }
+    func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
