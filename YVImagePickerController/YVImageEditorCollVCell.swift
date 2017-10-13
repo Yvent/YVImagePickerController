@@ -1,14 +1,8 @@
-//
-//  WSImageEditorCollVCell.swift
-//  WeiShow
-//
-//  Created by 周逸文 on 2017/7/12.
-//  Copyright © 2017年 WS. All rights reserved.
-//
+
 
 import UIKit
 
-class WSImageEditorCollVCell: UICollectionViewCell {
+class YVImageEditorCollVCell: UICollectionViewCell {
     
     var imageV: UIImageView!
     
@@ -36,7 +30,7 @@ class WSImageEditorCollVCell: UICollectionViewCell {
         self.contentView.addSubview(imageV)
         closeBtn = UIButton(frame: CGRect(x: self.frame.width-3-24, y: self.frame.height-3-24, width: 24, height: 24))
         closeBtn.setTitle("X", for: .normal)
-        closeBtn.addTarget(self, action: #selector(WSImageEditorCollVCell.clickcloseBtn), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(YVImageEditorCollVCell.clickcloseBtn), for: .touchUpInside)
        self.contentView.addSubview(closeBtn)
         
     }
