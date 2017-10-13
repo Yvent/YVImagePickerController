@@ -1,0 +1,6 @@
+framework module Pods_YV_BackViewDemo {
+  umbrella header "Pods-YV_BackViewDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
