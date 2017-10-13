@@ -1,7 +1,7 @@
 # YVImagePickerController
 iOS -  支持单选，多选，视频和图片，多图合成幻灯片
 
-![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/demo.png)
+![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/YVImagePickerController.gif)
 
 1.首先将 YVImagePickerController文件夹中的文件 拖入项目
 
