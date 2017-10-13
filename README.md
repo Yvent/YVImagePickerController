@@ -3,7 +3,7 @@
 
 ![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/demo.png)
 
-1.首先将 YVImagePickerController.swift文件 拖入项目
+1.首先将 YVImagePickerController文件夹中的文件 拖入项目
 
 2.在plist文件中加入
 
