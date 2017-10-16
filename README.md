@@ -6,7 +6,7 @@ iOS -  支持单选，多选，视频和图片，多图合成幻灯片
 
 Requirements
  ````
-iOS 8.0+ / Mac OS X 10.11+ / tvOS 9.0+
+iOS 9.0+ 
 Xcode 8.0+
 Swift 3.0+
  ````
