@@ -36,7 +36,7 @@ class SingleSelectionVideoVC: UIViewController, YVImagePickerControllerDelegate 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
     }
     
-    func navRightItemClicked()  {
+    @objc func navRightItemClicked()  {
         let pickerVC = YVImagePickerController()
         pickerVC.yvmediaType = . video
         pickerVC.yvcolumns = 4

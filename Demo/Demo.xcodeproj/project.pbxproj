@@ -18,12 +18,12 @@
 		42CDB5091F8DF4C000A25E1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CDB5071F8DF4C000A25E1B /* LaunchScreen.storyboard */; };
 		42CDB5111F8DF4D500A25E1B /* YVImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */; };
 		42FFE5961F8F580400C3E2EE /* YVImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */; };
-		42FFE59A1F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */; };
 		42FFE59C1F8F65DD00C3E2EE /* SingleSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59B1F8F65DD00C3E2EE /* SingleSelectionVC.swift */; };
 		42FFE59E1F8F664500C3E2EE /* SingleSelectionVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59D1F8F664500C3E2EE /* SingleSelectionVideoVC.swift */; };
 		42FFE5A01F8F6BBD00C3E2EE /* MultiSelectImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE59F1F8F6BBD00C3E2EE /* MultiSelectImageVC.swift */; };
 		42FFE5A21F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FFE5A11F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift */; };
 		512906DA3CB4CA401975A837 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C58271AE3DFCC4752B0A32A /* Pods_Demo.framework */; };
+		638260091F94B00500973EA7 /* UIImageEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638260081F94B00500973EA7 /* UIImageEXT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +43,11 @@
 		42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVImagePickerController.swift; sourceTree = "<group>"; };
 		42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YVImagePickerCell.swift; sourceTree = "<group>"; };
 		42FFE5971F8F5AD500C3E2EE /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		42FFE5981F8F5AD500C3E2EE /* UIImage+RSKImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RSKImageCropper.h"; sourceTree = "<group>"; };
-		42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RSKImageCropper.m"; sourceTree = "<group>"; };
 		42FFE59B1F8F65DD00C3E2EE /* SingleSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionVC.swift; sourceTree = "<group>"; };
 		42FFE59D1F8F664500C3E2EE /* SingleSelectionVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectionVideoVC.swift; sourceTree = "<group>"; };
 		42FFE59F1F8F6BBD00C3E2EE /* MultiSelectImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectImageVC.swift; sourceTree = "<group>"; };
 		42FFE5A11F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectImageToVideoVC.swift; sourceTree = "<group>"; };
+		638260081F94B00500973EA7 /* UIImageEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEXT.swift; sourceTree = "<group>"; };
 		9305A05B19DDBC12132B3CD6 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,13 +113,12 @@
 			children = (
 				42C10C381F90BAAD00A527DA /* CXEImagesToVideoSync.swift */,
 				42C10C391F90BAAD00A527DA /* CXEImagesToVideoAsync.swift */,
-				42FFE5981F8F5AD500C3E2EE /* UIImage+RSKImageCropper.h */,
-				42FFE5991F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m */,
 				42FFE5951F8F580400C3E2EE /* YVImagePickerCell.swift */,
 				42CDB5101F8DF4D500A25E1B /* YVImagePickerController.swift */,
 				42C10C361F90AC0600A527DA /* YVImageEditorCollVCell.swift */,
 				42C10C321F90A47400A527DA /* YVImageEditorController.swift */,
 				42C10C341F90A6F400A527DA /* YVNavigationView.swift */,
+				638260081F94B00500973EA7 /* UIImageEXT.swift */,
 			);
 			name = YVImagePickerController;
 			sourceTree = "<group>";
@@ -258,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C10C3B1F90BAAD00A527DA /* CXEImagesToVideoAsync.swift in Sources */,
+				638260091F94B00500973EA7 /* UIImageEXT.swift in Sources */,
 				42FFE59E1F8F664500C3E2EE /* SingleSelectionVideoVC.swift in Sources */,
 				42FFE5A21F8F6BFA00C3E2EE /* MultiSelectImageToVideoVC.swift in Sources */,
 				42CDB5111F8DF4D500A25E1B /* YVImagePickerController.swift in Sources */,
@@ -267,7 +266,6 @@
 				42CDB5011F8DF4C000A25E1B /* ViewController.swift in Sources */,
 				42FFE5961F8F580400C3E2EE /* YVImagePickerCell.swift in Sources */,
 				42FFE59C1F8F65DD00C3E2EE /* SingleSelectionVC.swift in Sources */,
-				42FFE59A1F8F5AD500C3E2EE /* UIImage+RSKImageCropper.m in Sources */,
 				42C10C351F90A6F400A527DA /* YVNavigationView.swift in Sources */,
 				42CDB4FF1F8DF4C000A25E1B /* AppDelegate.swift in Sources */,
 				42C10C371F90AC0600A527DA /* YVImageEditorCollVCell.swift in Sources */,
@@ -335,6 +333,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -377,6 +376,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -394,7 +394,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -410,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = YV.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

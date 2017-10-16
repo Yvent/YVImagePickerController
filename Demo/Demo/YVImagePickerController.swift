@@ -246,12 +246,12 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         self.view.addSubview(topView)
         topView.addSubview(leftBtn)
     }
-    func didleftBtn()  {
+     @objc func didleftBtn()  {
         if self.delegate != nil {
             self.delegate.yvimagePickerControllerDidCancel(self)
         }
     }
-    func didphotoAlbumBtn() {
+    @objc func didphotoAlbumBtn() {
         if photoAlbumBtn.isSelected == true {
             removeTab()
         }else{
@@ -273,7 +273,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         photoAlbumBtn.isSelected = true
     }
     //多选照片是下一步
-    func didnextBtn() {
+    @objc func didnextBtn() {
         if selectedAssets.count != 0 {
             isEditImages == true ? self.preToEditor(selectedAssets) : self.phassetsToImages(selectedAssets)
         }else{
@@ -394,7 +394,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     }
     func exportAvailableVideo(asset: AVAsset,finished: @escaping ((_ url: URL)->())) {
         let exporterSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)
-        exporterSession?.outputFileType = AVFileTypeQuickTimeMovie
+        exporterSession?.outputFileType = AVFileType.mov
         exporterSession?.outputURL = URL(fileURLWithPath: self.yvOutputPath)
         if FileManager.default.fileExists(atPath: self.yvOutputPath) {
             do {
@@ -451,7 +451,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
             
             photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                 let image = UIImage.init(data: imagedata!)
-                yvimages.append((image?.fixOrientation())!)
+                yvimages.append((image?.fixOrientation1())!)
                 if yvimages.count == phassets.count {
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()

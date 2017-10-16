@@ -117,7 +117,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         UIGraphicsEndImageContext()
         return resize!
     }
-    func doaddPhotoBtn() {
+    @objc func doaddPhotoBtn() {
         
         
         let imageP = YVImagePickerController()
@@ -162,7 +162,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
                 photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                   
                     let image = UIImage.init(data: imagedata!)
-                    imageArrCopt.append((image?.fixOrientation())!)
+                    imageArrCopt.append((image?.fixOrientation1())!)
                     
                     
                     
@@ -210,7 +210,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         }
         
     }
-    func longPress(_ longPress: UILongPressGestureRecognizer)  {
+    @objc func longPress(_ longPress: UILongPressGestureRecognizer)  {
         
         let point = longPress.location(in: self.imageCollV)
         

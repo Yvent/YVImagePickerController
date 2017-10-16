@@ -55,7 +55,7 @@ class MultiSelectImageVC: UIViewController, YVImagePickerControllerDelegate {
         self.view.addSubview(showImagesView)
         showImagesView.register(YVImagePickerCell.self, forCellWithReuseIdentifier: "YVImagePickerCell")
     }
-    func navRightItemClicked()  {
+    @objc func navRightItemClicked()  {
         
         let pickerVC = YVImagePickerController()
         pickerVC.yvmediaType = .image

@@ -33,7 +33,7 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         btn.addTarget(self, action: #selector(navRightItemClicked), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
     }
-    func navRightItemClicked()  {
+    @objc func navRightItemClicked()  {
         
         let pickerVC = YVImagePickerController()
         pickerVC.yvmediaType = .image

@@ -88,10 +88,10 @@ class YVNavigationView: UIView {
         addSubview(centeritem)
         centeritem.frame = CGRect(x: 50, y: 20, width: ScreenWidth-100, height: 44)
     }
-    func didleftitem() {
+    @objc func didleftitem() {
         self.delegate?.yvdidleftitem()
     }
-    func didrightitem() {
+    @objc func didrightitem() {
         self.delegate?.yvdidrightitem()
     }
 

@@ -38,7 +38,7 @@ class SingleSelectionImageVC: UIViewController, YVImagePickerControllerDelegate 
         showImageView.backgroundColor = UIColor.gray
         self.view.addSubview(showImageView)
     }
-    func navRightItemClicked()  {
+    @objc func navRightItemClicked()  {
  
         let pickerVC = YVImagePickerController()
         pickerVC.yvmediaType = .image
