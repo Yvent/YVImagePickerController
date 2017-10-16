@@ -3,15 +3,26 @@ iOS -  支持单选，多选，视频和图片，多图合成幻灯片
 
 ![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/YVImagePickerController.gif)
 
-1.首先将 YVImagePickerController文件夹中的文件 拖入项目
 
-2.在plist文件中加入
+Requirements
+ ````
+iOS 8.0+ / Mac OS X 10.11+ / tvOS 9.0+
+Xcode 8.0+
+Swift 3.0+
+ ````
+
+
+Step1
+将 YVImagePickerController文件夹中的文件 拖入项目
+
+Step2
+在plist文件中加入
 
  ````
   <key>NSPhotoLibraryUsageDescription</key>
     <string>App需要您的同意,才能访问相册</string>
 ````
-3.
+Step3
 ````
  import Photos
 ````
