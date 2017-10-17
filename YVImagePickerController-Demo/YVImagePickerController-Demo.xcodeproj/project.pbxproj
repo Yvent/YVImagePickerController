@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6379D81E1F95F43400C55ECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D81D1F95F43400C55ECC /* AppDelegate.swift */; };
+		6379D8231F95F43400C55ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8211F95F43400C55ECC /* Main.storyboard */; };
+		6379D8251F95F43400C55ECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8241F95F43400C55ECC /* Assets.xcassets */; };
+		6379D8281F95F43400C55ECC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */; };
+		6379D83D1F95F4C200C55ECC /* MultiSelectImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */; };
+		6379D83E1F95F4C200C55ECC /* SingleSelectionVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */; };
+		6379D83F1F95F4C200C55ECC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D83A1F95F4C100C55ECC /* ViewController.swift */; };
+		6379D8401F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D83B1F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift */; };
+		6379D8411F95F4C200C55ECC /* SingleSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D83C1F95F4C200C55ECC /* SingleSelectionVC.swift */; };
+		6379D8421F95F58B00C55ECC /* CXEImagesToVideoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8321F95F4A600C55ECC /* CXEImagesToVideoSync.swift */; };
+		6379D8431F95F58B00C55ECC /* YVNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8351F95F4A700C55ECC /* YVNavigationView.swift */; };
+		6379D8441F95F58B00C55ECC /* YVImageEditorCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8301F95F4A600C55ECC /* YVImageEditorCollVCell.swift */; };
+		6379D8451F95F58B00C55ECC /* YVImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8311F95F4A600C55ECC /* YVImagePickerCell.swift */; };
+		6379D8461F95F58B00C55ECC /* YVImageEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8371F95F4A700C55ECC /* YVImageEditorController.swift */; };
+		6379D8471F95F58B00C55ECC /* YVImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8331F95F4A600C55ECC /* YVImagePickerController.swift */; };
+		6379D8481F95F58B00C55ECC /* UIImageEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8361F95F4A700C55ECC /* UIImageEXT.swift */; };
+		6379D8491F95F58B00C55ECC /* CXEImagesToVideoAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8341F95F4A700C55ECC /* CXEImagesToVideoAsync.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6379D81A1F95F43400C55ECC /* YVImagePickerController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YVImagePickerController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6379D81D1F95F43400C55ECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6379D8221F95F43400C55ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6379D8241F95F43400C55ECC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6379D8271F95F43400C55ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6379D8291F95F43400C55ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6379D8301F95F4A600C55ECC /* YVImageEditorCollVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YVImageEditorCollVCell.swift; sourceTree = "<group>"; };
+		6379D8311F95F4A600C55ECC /* YVImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YVImagePickerCell.swift; sourceTree = "<group>"; };
+		6379D8321F95F4A600C55ECC /* CXEImagesToVideoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXEImagesToVideoSync.swift; sourceTree = "<group>"; };
+		6379D8331F95F4A600C55ECC /* YVImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YVImagePickerController.swift; sourceTree = "<group>"; };
+		6379D8341F95F4A700C55ECC /* CXEImagesToVideoAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXEImagesToVideoAsync.swift; sourceTree = "<group>"; };
+		6379D8351F95F4A700C55ECC /* YVNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YVNavigationView.swift; sourceTree = "<group>"; };
+		6379D8361F95F4A700C55ECC /* UIImageEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEXT.swift; sourceTree = "<group>"; };
+		6379D8371F95F4A700C55ECC /* YVImageEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YVImageEditorController.swift; sourceTree = "<group>"; };
+		6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectImageVC.swift; sourceTree = "<group>"; };
+		6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionVideoVC.swift; sourceTree = "<group>"; };
+		6379D83A1F95F4C100C55ECC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6379D83B1F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectImageToVideoVC.swift; sourceTree = "<group>"; };
+		6379D83C1F95F4C200C55ECC /* SingleSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6379D8171F95F43400C55ECC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6379D8111F95F43400C55ECC = {
+			isa = PBXGroup;
+			children = (
+				6379D81C1F95F43400C55ECC /* YVImagePickerController-Demo */,
+				6379D81B1F95F43400C55ECC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6379D81B1F95F43400C55ECC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6379D81A1F95F43400C55ECC /* YVImagePickerController-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6379D81C1F95F43400C55ECC /* YVImagePickerController-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6379D8341F95F4A700C55ECC /* CXEImagesToVideoAsync.swift */,
+				6379D8321F95F4A600C55ECC /* CXEImagesToVideoSync.swift */,
+				6379D8361F95F4A700C55ECC /* UIImageEXT.swift */,
+				6379D8301F95F4A600C55ECC /* YVImageEditorCollVCell.swift */,
+				6379D8371F95F4A700C55ECC /* YVImageEditorController.swift */,
+				6379D8311F95F4A600C55ECC /* YVImagePickerCell.swift */,
+				6379D8331F95F4A600C55ECC /* YVImagePickerController.swift */,
+				6379D8351F95F4A700C55ECC /* YVNavigationView.swift */,
+				6379D83B1F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift */,
+				6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */,
+				6379D83C1F95F4C200C55ECC /* SingleSelectionVC.swift */,
+				6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */,
+				6379D83A1F95F4C100C55ECC /* ViewController.swift */,
+				6379D81D1F95F43400C55ECC /* AppDelegate.swift */,
+				6379D8211F95F43400C55ECC /* Main.storyboard */,
+				6379D8241F95F43400C55ECC /* Assets.xcassets */,
+				6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */,
+				6379D8291F95F43400C55ECC /* Info.plist */,
+			);
+			path = "YVImagePickerController-Demo";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6379D8191F95F43400C55ECC /* YVImagePickerController-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6379D82C1F95F43400C55ECC /* Build configuration list for PBXNativeTarget "YVImagePickerController-Demo" */;
+			buildPhases = (
+				6379D8161F95F43400C55ECC /* Sources */,
+				6379D8171F95F43400C55ECC /* Frameworks */,
+				6379D8181F95F43400C55ECC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "YVImagePickerController-Demo";
+			productName = "YVImagePickerController-Demo";
+			productReference = 6379D81A1F95F43400C55ECC /* YVImagePickerController-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6379D8121F95F43400C55ECC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Devil;
+				TargetAttributes = {
+					6379D8191F95F43400C55ECC = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6379D8151F95F43400C55ECC /* Build configuration list for PBXProject "YVImagePickerController-Demo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6379D8111F95F43400C55ECC;
+			productRefGroup = 6379D81B1F95F43400C55ECC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6379D8191F95F43400C55ECC /* YVImagePickerController-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6379D8181F95F43400C55ECC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6379D8281F95F43400C55ECC /* LaunchScreen.storyboard in Resources */,
+				6379D8251F95F43400C55ECC /* Assets.xcassets in Resources */,
+				6379D8231F95F43400C55ECC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6379D8161F95F43400C55ECC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6379D8491F95F58B00C55ECC /* CXEImagesToVideoAsync.swift in Sources */,
+				6379D8471F95F58B00C55ECC /* YVImagePickerController.swift in Sources */,
+				6379D8451F95F58B00C55ECC /* YVImagePickerCell.swift in Sources */,
+				6379D8421F95F58B00C55ECC /* CXEImagesToVideoSync.swift in Sources */,
+				6379D83E1F95F4C200C55ECC /* SingleSelectionVideoVC.swift in Sources */,
+				6379D8401F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift in Sources */,
+				6379D8461F95F58B00C55ECC /* YVImageEditorController.swift in Sources */,
+				6379D8481F95F58B00C55ECC /* UIImageEXT.swift in Sources */,
+				6379D8431F95F58B00C55ECC /* YVNavigationView.swift in Sources */,
+				6379D83D1F95F4C200C55ECC /* MultiSelectImageVC.swift in Sources */,
+				6379D8411F95F4C200C55ECC /* SingleSelectionVC.swift in Sources */,
+				6379D83F1F95F4C200C55ECC /* ViewController.swift in Sources */,
+				6379D8441F95F58B00C55ECC /* YVImageEditorCollVCell.swift in Sources */,
+				6379D81E1F95F43400C55ECC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6379D8211F95F43400C55ECC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6379D8221F95F43400C55ECC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6379D8271F95F43400C55ECC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6379D82A1F95F43400C55ECC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6379D82B1F95F43400C55ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6379D82D1F95F43400C55ECC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DVDU22WC2;
+				INFOPLIST_FILE = "YVImagePickerController-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZYW.YVImagePickerController-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6379D82E1F95F43400C55ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DVDU22WC2;
+				INFOPLIST_FILE = "YVImagePickerController-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZYW.YVImagePickerController-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6379D8151F95F43400C55ECC /* Build configuration list for PBXProject "YVImagePickerController-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6379D82A1F95F43400C55ECC /* Debug */,
+				6379D82B1F95F43400C55ECC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6379D82C1F95F43400C55ECC /* Build configuration list for PBXNativeTarget "YVImagePickerController-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6379D82D1F95F43400C55ECC /* Debug */,
+				6379D82E1F95F43400C55ECC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6379D8121F95F43400C55ECC /* Project object */;
+}
