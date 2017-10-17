@@ -17,7 +17,7 @@ public protocol YVNavigationViewDelegate: class {
     func yvdidrightitem()
     func yvsetBackView(backView: UIView)}
 
-extension YVNavigationViewDelegate where Self: UIViewController{
+public extension YVNavigationViewDelegate where Self: UIViewController{
     func yvdidleftitem() {
         print("Click leftitem")
     }

@@ -17,14 +17,14 @@ public protocol YVNavigationViewDelegate: class {
     func yvdidrightitem()
     func yvsetBackView(backView: UIView)}
 
-extension YVNavigationViewDelegate where Self: UIViewController{
+public extension YVNavigationViewDelegate where Self: UIViewController{
     func yvdidleftitem() {
         print("Click leftitem")
     }
     func yvdidrightitem() {
         print("Click rightitem")
     }
-    func yvsetBackView(backView: UIView) {
+    public func yvsetBackView(backView: UIView) {
         self.view.addSubview(backView)
         backView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
     }
@@ -41,7 +41,7 @@ public class YVNavigationView: UIView {
     var rightitem: UIButton = UIButton()
     
     
-    init(yv_bc bc: UIColor = YVNavColor,any: Any,title: String = "YVNavigationView",lefttitle: String? = nil,leftnamed: String? = nil,righttitle: String? = nil,rightnamed: String? = nil) {
+  public  init(yv_bc bc: UIColor = YVNavColor,any: Any,title: String = "YVNavigationView",lefttitle: String? = nil,leftnamed: String? = nil,righttitle: String? = nil,rightnamed: String? = nil) {
         super.init(frame: CGRect.zero)
         self.delegate = any as? YVNavigationViewDelegate
         
@@ -56,7 +56,7 @@ public class YVNavigationView: UIView {
     func addNavigationViewToVC() {
         self.delegate?.yvsetBackView(backView: self)
     }
-    func initNavigationView(zyw_bc bc: UIColor = YVNavColor,title: String = "YVNavigationView",lefttitle: String? = nil,leftnamed: String? = nil,righttitle: String? = nil,rightnamed: String? = nil) {
+   public func initNavigationView(zyw_bc bc: UIColor = YVNavColor,title: String = "YVNavigationView",lefttitle: String? = nil,leftnamed: String? = nil,righttitle: String? = nil,rightnamed: String? = nil) {
         backgroundColor = bc
         
         if lefttitle != nil || leftnamed != nil {
