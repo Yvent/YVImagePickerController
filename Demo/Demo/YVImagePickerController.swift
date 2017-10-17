@@ -7,7 +7,6 @@
 import UIKit
 import Photos
 import PhotosUI
-import SVProgressHUD
 
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
@@ -55,6 +54,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     
     var topView: UIView!
     weak var delegate: YVImagePickerControllerDelegate!
+    let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     //全部相册的数组
     private(set) var photoAlbums    = [[String: PHFetchResult<PHAsset>]]()
@@ -234,6 +234,11 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
             nextBtn.addTarget(self, action: #selector(YVImagePickerController.didnextBtn), for: .touchUpInside)
             topView.addSubview(nextBtn)
         }else{  print("单选") }
+        
+        loadingV.center = self.view.center
+        loadingV.color = UIColor.black
+        self.view.addSubview(loadingV)
+        
     }
     func createYVTopView() {
         let topFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
@@ -443,8 +448,18 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     }
     
     func phassetsToImages(_ phassets: Array<PHAsset>) {
+//        loadingV.stopAnimating()
         
-        SVProgressHUD.show()
+        if loadingV.isAnimating {
+            loadingV.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+        }else{
+            loadingV.startAnimating()
+            self.view.isUserInteractionEnabled = false
+        }
+        
+        
+//        SVProgressHUD.show()
         var yvimages = Array<UIImage>()
         
         for item in phassets{
@@ -454,7 +469,9 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
                 yvimages.append((image?.fixOrientation1())!)
                 if yvimages.count == phassets.count {
                     DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
+                        self?.loadingV.stopAnimating()
+                        self?.view.isUserInteractionEnabled = true
+//                        SVProgressHUD.dismiss()
                         if self?.delegate != nil {
                             self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }

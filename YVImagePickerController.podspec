@@ -46,8 +46,9 @@ Pod::Spec.new do |s|
   s.source_files  = "YVImagePickerController-3.0+/*"
 
 
- 
+  s.platform     = :ios, "9.0"
 
+  s.ios.deployment_target = "9.0"
 
   
 

@@ -4,6 +4,6 @@ use_frameworks!
 
 target 'Demo' do
 
-pod 'SVProgressHUD'
+#pod 'SVProgressHUD'
 
 end
