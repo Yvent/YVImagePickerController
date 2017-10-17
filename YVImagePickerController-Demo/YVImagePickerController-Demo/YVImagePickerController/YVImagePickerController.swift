@@ -14,7 +14,7 @@ let ScreenHeight = UIScreen.main.bounds.height
 
 
 
-protocol YVImagePickerControllerDelegate: class {
+public protocol YVImagePickerControllerDelegate: class {
     func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController)
 }
@@ -30,29 +30,29 @@ public enum yvPHAuthorizationStatus : Int {
 }
 
 
-class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
+open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
     
     
     ///导出视频的路径
-    var yvOutputPath: String = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last! + "/YV_Available.mp4"
+  open  var yvOutputPath: String = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last! + "/YV_Available.mp4"
     ///多选时最大张数
-    var yvmaxSelected = 10
+   open var yvmaxSelected = 10
     ///列数
-    var yvcolumns = 4
+   open var yvcolumns = 4
     ///导航栏背景色
-    var topViewColor: UIColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
+   open var topViewColor: UIColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
     ///过滤相册时上下icon
-    var arrowUpName: String?
-    var arrowDownName: String?
+  open  var arrowUpName: String?
+  open  var arrowDownName: String?
     ///媒体类型：照片或视频
-    var yvmediaType: yvMediaType = .image
+  open  var yvmediaType: yvMediaType = .image
     ///是否多选，默认单选
-    var yvIsMultiselect: Bool! = false
+  open  var yvIsMultiselect: Bool! = false
     ///多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
-    var isEditImages: Bool = false
+   open var isEditImages: Bool = false
     
     
-    var topView: UIView!
+  open  var topView: UIView!
     weak var delegate: YVImagePickerControllerDelegate!
     let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
@@ -80,21 +80,21 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     
     
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         createYVTopView()
         photoAuthorization()
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         if  self.yvPHstatus == yvPHAuthorizationStatus.yvdenied {
             toAuthorization()
         }
     }
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     deinit {
@@ -286,11 +286,11 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assets.first!.value.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImagePickerCell", for: indexPath) as! YVImagePickerCell
         let asset = assets.first!.value[indexPath.row]
@@ -326,7 +326,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         }
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if yvIsMultiselect == true {
             let cell =  collectionView.cellForItem(at: indexPath) as! YVImagePickerCell
@@ -382,16 +382,16 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
             selectedAssets.remove(at: index)
         }
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photoAlbums.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier:  "YVImagePickerController")
         cell.textLabel?.text = photoAlbums[indexPath.row].keys.first
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.assets = photoAlbums[indexPath.row]
         self.photoAlbumBtn.setTitle((photoAlbums[indexPath.row].keys.first)!, for: .normal)
         self.imageCollV.reloadData()

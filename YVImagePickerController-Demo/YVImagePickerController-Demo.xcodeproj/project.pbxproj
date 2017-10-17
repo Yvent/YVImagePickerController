@@ -78,14 +78,7 @@
 		6379D81C1F95F43400C55ECC /* YVImagePickerController-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				6379D8341F95F4A700C55ECC /* CXEImagesToVideoAsync.swift */,
-				6379D8321F95F4A600C55ECC /* CXEImagesToVideoSync.swift */,
-				6379D8361F95F4A700C55ECC /* UIImageEXT.swift */,
-				6379D8301F95F4A600C55ECC /* YVImageEditorCollVCell.swift */,
-				6379D8371F95F4A700C55ECC /* YVImageEditorController.swift */,
-				6379D8311F95F4A600C55ECC /* YVImagePickerCell.swift */,
-				6379D8331F95F4A600C55ECC /* YVImagePickerController.swift */,
-				6379D8351F95F4A700C55ECC /* YVNavigationView.swift */,
+				6379D8861F96052F00C55ECC /* YVImagePickerController */,
 				6379D83B1F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift */,
 				6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */,
 				6379D83C1F95F4C200C55ECC /* SingleSelectionVC.swift */,
@@ -98,6 +91,21 @@
 				6379D8291F95F43400C55ECC /* Info.plist */,
 			);
 			path = "YVImagePickerController-Demo";
+			sourceTree = "<group>";
+		};
+		6379D8861F96052F00C55ECC /* YVImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				6379D8341F95F4A700C55ECC /* CXEImagesToVideoAsync.swift */,
+				6379D8321F95F4A600C55ECC /* CXEImagesToVideoSync.swift */,
+				6379D8361F95F4A700C55ECC /* UIImageEXT.swift */,
+				6379D8301F95F4A600C55ECC /* YVImageEditorCollVCell.swift */,
+				6379D8371F95F4A700C55ECC /* YVImageEditorController.swift */,
+				6379D8311F95F4A600C55ECC /* YVImagePickerCell.swift */,
+				6379D8331F95F4A600C55ECC /* YVImagePickerController.swift */,
+				6379D8351F95F4A700C55ECC /* YVNavigationView.swift */,
+			);
+			path = YVImagePickerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
