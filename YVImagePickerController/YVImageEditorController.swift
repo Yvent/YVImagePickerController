@@ -4,7 +4,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource{
+open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource{
     
     lazy var pickerPhotoSize:CGSize = {
         
@@ -17,9 +17,9 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
     }()
     
     ///列数
-    var yvcolumns = 4
-    var navView: YVNavigationView!
-    var tipsLabel: UILabel!
+   open var yvcolumns = 4
+   public var navView: YVNavigationView!
+   open var tipsLabel: UILabel!
     var imageCollV: UICollectionView!
     
     var addPhotoBtn: UIButton!
@@ -28,32 +28,32 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
     
     var imageArr: Array<UIImage> = Array<UIImage>()
     
-    var finished: ((_ url: URL, _ assets: Array<PHAsset>)->())!
+  open  var finished: ((_ url: URL, _ assets: Array<PHAsset>)->())!
     
-    var cellsize: CGSize! 
+  open  var cellsize: CGSize!
     
     private var photoManage = PHImageManager()
     private let photoOption = PHImageRequestOptions()
     private let photoCreationDate = "creationDate"
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.white
         
         initUI()
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.imageCollV.reloadData()
         
     }
     
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
   
@@ -146,9 +146,9 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
     }
 
     
-    func yvdidleftitem() {modelTip()}
+    public func yvdidleftitem() {modelTip()}
     
-    func yvdidrightitem() {
+    public func yvdidrightitem() {
         if phassets.count == 0 {
              self.dismiss(animated: true, completion: nil)
         }else{
@@ -261,11 +261,11 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+   open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return phassets.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+   open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImageEditorCollVCell", for: indexPath) as! YVImageEditorCollVCell
         cell.didclickcloseBtn = {
@@ -300,7 +300,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         )
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+   open func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let imageAsset = phassets[sourceIndexPath.item]
         phassets.remove(at: sourceIndexPath.item)
         phassets.insert(imageAsset, at: destinationIndexPath.item)
@@ -310,7 +310,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
 }
 extension YVImageEditorController:  YVImagePickerControllerDelegate{
     
-    func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+   open func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         
         if info["imagedatas"] != nil{
@@ -322,7 +322,7 @@ extension YVImageEditorController:  YVImagePickerControllerDelegate{
             }
     
      }
-    func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
+  open  func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }

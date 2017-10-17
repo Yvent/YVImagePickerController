@@ -9,9 +9,9 @@
 import UIKit
 
 
-let YVNavColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
+public var YVNavColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
 ///'class' not have will error
-protocol YVNavigationViewDelegate: class {
+public protocol YVNavigationViewDelegate: class {
     
     func yvdidleftitem()
     func yvdidrightitem()
@@ -30,7 +30,7 @@ extension YVNavigationViewDelegate where Self: UIViewController{
     }
 }
 
-class YVNavigationView: UIView {
+public class YVNavigationView: UIView {
 
     weak var delegate:YVNavigationViewDelegate!
     
@@ -49,7 +49,7 @@ class YVNavigationView: UIView {
         addNavigationViewToVC()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

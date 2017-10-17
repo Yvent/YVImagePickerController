@@ -52,8 +52,8 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
    open var isEditImages: Bool = false
     
     
-  open  var topView: UIView!
-    weak var delegate: YVImagePickerControllerDelegate!
+   open  var topView: UIView!
+    weak open var delegate: YVImagePickerControllerDelegate!
     let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     //全部相册的数组
@@ -286,11 +286,11 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+   open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assets.first!.value.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImagePickerCell", for: indexPath) as! YVImagePickerCell
         let asset = assets.first!.value[indexPath.row]
@@ -326,7 +326,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         }
         return cell
     }
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if yvIsMultiselect == true {
             let cell =  collectionView.cellForItem(at: indexPath) as! YVImagePickerCell
@@ -382,16 +382,16 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
             selectedAssets.remove(at: index)
         }
     }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photoAlbums.count
     }
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier:  "YVImagePickerController")
         cell.textLabel?.text = photoAlbums[indexPath.row].keys.first
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.assets = photoAlbums[indexPath.row]
         self.photoAlbumBtn.setTitle((photoAlbums[indexPath.row].keys.first)!, for: .normal)
         self.imageCollV.reloadData()
