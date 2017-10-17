@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import YVImagePickerController
 class SingleSelectionImageVC: UIViewController, YVImagePickerControllerDelegate {
     
     

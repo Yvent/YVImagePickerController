@@ -24,7 +24,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
     
     var addPhotoBtn: UIButton!
      let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    var phassets = Array<PHAsset>()
+   open var phassets = Array<PHAsset>()
     
     var imageArr: Array<UIImage> = Array<UIImage>()
     

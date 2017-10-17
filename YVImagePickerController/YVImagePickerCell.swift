@@ -31,9 +31,14 @@ class YVImagePickerCell: UICollectionViewCell {
         imageV = UIImageView(frame: imagevFrame)
         let closeBtnFrame: CGRect = CGRect(x: self.frame.width-3-24, y: 3, width: 24, height: 24)
         closeBtn = UIButton(frame: closeBtnFrame)
-        closeBtn.setTitle("♥", for: .selected)
-        closeBtn.setTitleColor(closeBtnColor, for: .selected)
-        closeBtn.setTitle("", for: .normal)
+        
+        let bundle =  Bundle(for: YVImagePickerController.self)
+        let path = bundle.path(forResource: "YVImagePickerController", ofType: "bundle")
+        let imageBundle =  Bundle(path: path!)
+        let nolImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "yvCloseBtn_nol", ofType: "png"))!)
+        let selImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "yvCloseBtn_sel", ofType: "png"))!)
+        closeBtn.setImage(nolImage, for: .normal)
+        closeBtn.setImage(selImage, for: .selected)
         closeBtn.isUserInteractionEnabled = false
         let timeLabFrame: CGRect = CGRect(x: 5, y: self.frame.height-20, width: self.frame.width-10, height: 20)
         timeLab = UILabel(frame: timeLabFrame)

@@ -1,0 +1,12 @@
+PODS:
+  - YVImagePickerController (1.0.4)
+
+DEPENDENCIES:
+  - YVImagePickerController (~> 1.0.4)
+
+SPEC CHECKSUMS:
+  YVImagePickerController: 2fac3112a9601c065df3f0f6e1483239541bd6e4
+
+PODFILE CHECKSUM: 04a2f9609884dd9e961c813674932e8c08e627c3
+
+COCOAPODS: 1.1.1

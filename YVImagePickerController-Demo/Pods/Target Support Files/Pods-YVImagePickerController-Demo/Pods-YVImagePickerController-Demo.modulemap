@@ -1,0 +1,6 @@
+framework module Pods_YVImagePickerController_Demo {
+  umbrella header "Pods-YVImagePickerController-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,10 @@
+ use_frameworks!
+platform :ios, '9.0'
+
+target 'YVImagePickerController-Demo' do
+
+ 
+
+ pod 'YVImagePickerController' ,'~> 1.0.4'
+
+end

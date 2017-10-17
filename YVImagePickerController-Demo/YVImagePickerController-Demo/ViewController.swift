@@ -8,6 +8,11 @@
 
 import UIKit
 import Photos
+import YVImagePickerController
+
+let ScreenWidth = UIScreen.main.bounds.width
+let ScreenHeight = UIScreen.main.bounds.height
+
 class ViewController: UIViewController {
 
     

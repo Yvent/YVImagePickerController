@@ -8,7 +8,7 @@
 
 import UIKit
 import Photos
-
+import YVImagePickerController
 class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelegate {
 
     
