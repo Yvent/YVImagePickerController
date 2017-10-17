@@ -153,7 +153,6 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
              self.dismiss(animated: true, completion: nil)
         }else{
         
-//            SVProgressHUD.show(withStatus: "正在合成视频")
             if loadingV.isAnimating {
                  loadingV.stopAnimating()
                  self.view.isUserInteractionEnabled = true
@@ -201,8 +200,6 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
                                         
                                         DispatchQueue.main.async {
                                             self?.finished(fileURL,(self?.phassets)!)
-//                                            SVProgressHUD.dismiss()
-                                            
                                             self?.loadingV.stopAnimating()
                                             self?.view.isUserInteractionEnabled = true
                                             self?.dismiss(animated: true, completion: nil)

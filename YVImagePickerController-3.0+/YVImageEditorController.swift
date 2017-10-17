@@ -1,7 +1,6 @@
 
 
 import UIKit
-
 import AVFoundation
 import Photos
 
@@ -24,7 +23,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
     var imageCollV: UICollectionView!
     
     var addPhotoBtn: UIButton!
-    
+     let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     var phassets = Array<PHAsset>()
     
     var imageArr: Array<UIImage> = Array<UIImage>()
@@ -96,6 +95,11 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         addPhotoBtn.backgroundColor = YVNavColor
         addPhotoBtn.addTarget(self, action: #selector(YVImageEditorController.doaddPhotoBtn), for: .touchUpInside)
         self.view.addSubview(addPhotoBtn)
+        
+       
+        loadingV.center = self.view.center
+        loadingV.color = UIColor.black
+        self.view.addSubview(loadingV)
     
     }
     func compressImage(_ image: UIImage) -> Data {
@@ -117,7 +121,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         UIGraphicsEndImageContext()
         return resize!
     }
-    func doaddPhotoBtn() {
+    @objc func doaddPhotoBtn() {
         
         
         let imageP = YVImagePickerController()
@@ -149,8 +153,15 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
              self.dismiss(animated: true, completion: nil)
         }else{
         
-            SVProgressHUD.show(withStatus: "正在合成视频")
+            if loadingV.isAnimating {
+                 loadingV.stopAnimating()
+                 self.view.isUserInteractionEnabled = true
+            }else{
+               loadingV.startAnimating()
+                self.view.isUserInteractionEnabled = false
+            }
             
+           
             var imageArrCopt = [UIImage]()
               var imageArrCopy = [UIImage]()
             
@@ -162,7 +173,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
                 photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                   
                     let image = UIImage.init(data: imagedata!)
-                    imageArrCopt.append((image?.fixOrientation())!)
+                    imageArrCopt.append((image?.fixOrientation1())!)
                     
                     
                     
@@ -175,10 +186,10 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
                             
                             let rect = self?.cellSizeToImageRect(cellsize: (self?.cellsize)!, zimage: item)
                             
-                                
+                            
                                 imageArrCopy.append((self?.resizeImage(item.yv_cropImage(rect: rect!), toSize: CGSize(width: (self?.cellsize.width)!*2, height: (self?.cellsize.height)!*2)))!)
                             
-                                
+                            
                                 if imageArrCopy.count == imageArrCopt.count {
                                     
                                     
@@ -189,7 +200,8 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
                                         
                                         DispatchQueue.main.async {
                                             self?.finished(fileURL,(self?.phassets)!)
-                                            SVProgressHUD.dismiss()
+                                            self?.loadingV.stopAnimating()
+                                            self?.view.isUserInteractionEnabled = true
                                             self?.dismiss(animated: true, completion: nil)
                                         }
                                         
@@ -210,7 +222,7 @@ class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICol
         }
         
     }
-    func longPress(_ longPress: UILongPressGestureRecognizer)  {
+    @objc func longPress(_ longPress: UILongPressGestureRecognizer)  {
         
         let point = longPress.location(in: self.imageCollV)
         
@@ -306,7 +318,7 @@ extension YVImageEditorController:  YVImagePickerControllerDelegate{
             self.phassets = phassets
             self.imageCollV.reloadData()
             }else{
-                SVProgressHUD.setStatus("未知类型")
+            print("未知类型")
             }
     
      }

@@ -458,8 +458,6 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
             self.view.isUserInteractionEnabled = false
         }
         
-        
-//        SVProgressHUD.show()
         var yvimages = Array<UIImage>()
         
         for item in phassets{
@@ -471,7 +469,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
                     DispatchQueue.main.async {
                         self?.loadingV.stopAnimating()
                         self?.view.isUserInteractionEnabled = true
-//                        SVProgressHUD.dismiss()
+
                         if self?.delegate != nil {
                             self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }

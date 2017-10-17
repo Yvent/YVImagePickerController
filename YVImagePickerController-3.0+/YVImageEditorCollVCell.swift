@@ -21,11 +21,7 @@ class YVImageEditorCollVCell: UICollectionViewCell {
     
     private func initUI() {
         contentView.backgroundColor = UIColor.white
-//        imageV = UIImageView(yv_named: "",
-//                             rd: 0,
-//                             bc: UIColor.white,
-//                             bdc: UIColor.white.cgColor,
-//                             bdw: 0)
+
         imageV = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         self.contentView.addSubview(imageV)
         closeBtn = UIButton(frame: CGRect(x: self.frame.width-3-24, y: self.frame.height-3-24, width: 24, height: 24))
@@ -34,7 +30,7 @@ class YVImageEditorCollVCell: UICollectionViewCell {
        self.contentView.addSubview(closeBtn)
         
     }
-    func clickcloseBtn() {
+    @objc func clickcloseBtn() {
         self.didclickcloseBtn()
     }
 }

@@ -54,6 +54,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     
     var topView: UIView!
     weak var delegate: YVImagePickerControllerDelegate!
+    let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     //全部相册的数组
     private(set) var photoAlbums    = [[String: PHFetchResult<PHAsset>]]()
@@ -233,6 +234,11 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
             nextBtn.addTarget(self, action: #selector(YVImagePickerController.didnextBtn), for: .touchUpInside)
             topView.addSubview(nextBtn)
         }else{  print("单选") }
+        
+        loadingV.center = self.view.center
+        loadingV.color = UIColor.black
+        self.view.addSubview(loadingV)
+        
     }
     func createYVTopView() {
         let topFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
@@ -245,12 +251,12 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         self.view.addSubview(topView)
         topView.addSubview(leftBtn)
     }
-    func didleftBtn()  {
+     @objc func didleftBtn()  {
         if self.delegate != nil {
             self.delegate.yvimagePickerControllerDidCancel(self)
         }
     }
-    func didphotoAlbumBtn() {
+    @objc func didphotoAlbumBtn() {
         if photoAlbumBtn.isSelected == true {
             removeTab()
         }else{
@@ -272,7 +278,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
         photoAlbumBtn.isSelected = true
     }
     //多选照片是下一步
-    func didnextBtn() {
+    @objc func didnextBtn() {
         if selectedAssets.count != 0 {
             isEditImages == true ? self.preToEditor(selectedAssets) : self.phassetsToImages(selectedAssets)
         }else{
@@ -393,7 +399,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     }
     func exportAvailableVideo(asset: AVAsset,finished: @escaping ((_ url: URL)->())) {
         let exporterSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)
-        exporterSession?.outputFileType = AVFileTypeQuickTimeMovie
+        exporterSession?.outputFileType = AVFileType.mov
         exporterSession?.outputURL = URL(fileURLWithPath: self.yvOutputPath)
         if FileManager.default.fileExists(atPath: self.yvOutputPath) {
             do {
@@ -442,18 +448,28 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     }
     
     func phassetsToImages(_ phassets: Array<PHAsset>) {
+//        loadingV.stopAnimating()
         
-        SVProgressHUD.show()
+        if loadingV.isAnimating {
+            loadingV.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+        }else{
+            loadingV.startAnimating()
+            self.view.isUserInteractionEnabled = false
+        }
+        
         var yvimages = Array<UIImage>()
         
         for item in phassets{
             
             photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                 let image = UIImage.init(data: imagedata!)
-                yvimages.append((image?.fixOrientation())!)
+                yvimages.append((image?.fixOrientation1())!)
                 if yvimages.count == phassets.count {
                     DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
+                        self?.loadingV.stopAnimating()
+                        self?.view.isUserInteractionEnabled = true
+
                         if self?.delegate != nil {
                             self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }
