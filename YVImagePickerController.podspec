@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YVImagePickerController"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Instead of UIImagePickerController."
 
   # This description is used to generate tags and improve search results.
@@ -39,11 +39,11 @@ Pod::Spec.new do |s|
 
 
 
-  s.source       = { :git => "https://github.com/Yvent/YVImagePickerController.git", :tag => "v0.0.1"}
+  s.source       = { :git => "https://github.com/Yvent/YVImagePickerController.git", :tag => "1.0.0"}
 
 
 
-  s.source_files  = "YVImagePickerController-3.0+/*"
+  s.source_files  = "YVImagePickerController/*"
 
 
   s.platform     = :ios, "9.0"
