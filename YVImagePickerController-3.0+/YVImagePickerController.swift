@@ -7,7 +7,6 @@
 import UIKit
 import Photos
 import PhotosUI
-import SVProgressHUD
 
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
