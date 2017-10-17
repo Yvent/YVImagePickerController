@@ -399,7 +399,7 @@ class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UIColl
     }
     func exportAvailableVideo(asset: AVAsset,finished: @escaping ((_ url: URL)->())) {
         let exporterSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)
-        exporterSession?.outputFileType = AVFileType.mov
+        exporterSession?.outputFileType = AVFileTypeQuickTimeMovie
         exporterSession?.outputURL = URL(fileURLWithPath: self.yvOutputPath)
         if FileManager.default.fileExists(atPath: self.yvOutputPath) {
             do {

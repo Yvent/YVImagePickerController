@@ -59,10 +59,9 @@ class CXEImageToVideoAsync: NSObject{
         //        }
         
         self.fileURL = URL(fileURLWithPath: tempPath)
-        self.assetWriter = try! AVAssetWriter(url: self.fileURL, fileType: AVFileType.mov)
-        
+        self.assetWriter = try! AVAssetWriter(url: self.fileURL, fileType: AVFileTypeQuickTimeMovie)
         self.videoSettings = videoSettings
-        self.writeInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoSettings)
+        self.writeInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: videoSettings)
         assert(self.assetWriter.canAdd(self.writeInput), "add failed")
         
         self.assetWriter.add(self.writeInput)
