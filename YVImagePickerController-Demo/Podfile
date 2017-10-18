@@ -5,6 +5,6 @@ target 'YVImagePickerController-Demo' do
 
  
 
- pod 'YVImagePickerController' ,'~> 1.0.4'
+ pod 'YVImagePickerController' ,'~> 1.0.5'
 
 end
