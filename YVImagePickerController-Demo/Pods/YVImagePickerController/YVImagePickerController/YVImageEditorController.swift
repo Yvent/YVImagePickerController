@@ -20,16 +20,17 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
    open var yvcolumns = 4
    public var navView: YVNavigationView!
    open var tipsLabel: UILabel!
-    var imageCollV: UICollectionView!
     
-    var addPhotoBtn: UIButton!
+   var imageCollV: UICollectionView!
+    
+   var addPhotoBtn: UIButton!
    open var phassets = Array<PHAsset>()
     
-    var imageArr: Array<UIImage> = Array<UIImage>()
+   var imageArr: Array<UIImage> = Array<UIImage>()
     
-  open  var finished: ((_ url: URL, _ assets: Array<PHAsset>)->())!
+   open  var finished: ((_ url: URL, _ assets: Array<PHAsset>)->())!
     
-  open  var cellsize: CGSize!
+   open  var cellsize: CGSize!
     
     private var photoManage = PHImageManager()
     private let photoOption = PHImageRequestOptions()
@@ -62,7 +63,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         
         navView = YVNavigationView(yv_bc: YVNavColor, any: self, title: "编辑幻灯片", lefttitle: "取消", leftnamed: nil, righttitle:  "完成", rightnamed: nil)
         
-        tipsLabel = UILabel(frame: CGRect(x: 0, y: 64, width: ScreenWidth, height: 27))
+        tipsLabel = UILabel(frame: CGRect(x: 0, y: yvRealHeight(), width: ScreenWidth, height: 27))
         tipsLabel.text = "拖拽图片改变幻灯片播放顺序"
         tipsLabel.textColor = YVNavColor
         tipsLabel.font = UIFont.systemFont(ofSize: 12)
@@ -75,7 +76,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
-        let imageCollVFrame = CGRect(x: 0, y: 64+27, width: ScreenWidth, height: ScreenHeight-64)
+        let imageCollVFrame = CGRect(x: 0, y: yvRealHeight()+27, width: ScreenWidth, height: ScreenHeight-yvRealHeight())
         
         imageCollV = UICollectionView(frame: imageCollVFrame, collectionViewLayout: layout)
         imageCollV.backgroundColor = UIColor.white
@@ -87,7 +88,6 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(YVImageEditorController.longPress(_:)))
         imageCollV.addGestureRecognizer(longPress)
-        
         addPhotoBtn = UIButton(frame: CGRect(x: 0, y: ScreenHeight-60, width: ScreenWidth, height: 60))
         addPhotoBtn.setTitle("+ 添加照片", for: .normal)
         addPhotoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -97,7 +97,6 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
 
     }
     func compressImage(_ image: UIImage) -> Data {
-        
         let resize = resizeImage(image, toSize: CGSize(width: image.size.width, height: image.size.height))
         return UIImageJPEGRepresentation(resize, 0.5)!
     }
@@ -121,7 +120,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         imageP.yvIsMultiselect = true
         imageP.yvmediaType = .image
         imageP.selectedAssets = phassets
-        imageP.delegate = self
+        imageP.yvdelegate = self
         imageP.isEditImages = true
         
         self.present(imageP, animated: true, completion: nil)

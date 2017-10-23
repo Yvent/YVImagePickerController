@@ -30,3 +30,5 @@ class YVLoadinger: NSObject {
         loadingV.removeFromSuperview()
     }
 }
+
+

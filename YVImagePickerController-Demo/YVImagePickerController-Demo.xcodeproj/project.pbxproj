@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635C7B741F9DEA08005AC3DB /* sssViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C7B731F9DEA08005AC3DB /* sssViewController.swift */; };
 		6379D81E1F95F43400C55ECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D81D1F95F43400C55ECC /* AppDelegate.swift */; };
 		6379D8231F95F43400C55ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8211F95F43400C55ECC /* Main.storyboard */; };
 		6379D8251F95F43400C55ECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8241F95F43400C55ECC /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		01E9D687E565C5481D56311C /* Pods-YVImagePickerController-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YVImagePickerController-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YVImagePickerController-Demo/Pods-YVImagePickerController-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		635C7B731F9DEA08005AC3DB /* sssViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sssViewController.swift; sourceTree = "<group>"; };
 		6379D81A1F95F43400C55ECC /* YVImagePickerController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YVImagePickerController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6379D81D1F95F43400C55ECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6379D8221F95F43400C55ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				6379D83C1F95F4C200C55ECC /* SingleSelectionVC.swift */,
 				6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */,
 				6379D83A1F95F4C100C55ECC /* ViewController.swift */,
+				635C7B731F9DEA08005AC3DB /* sssViewController.swift */,
 				6379D81D1F95F43400C55ECC /* AppDelegate.swift */,
 				6379D8211F95F43400C55ECC /* Main.storyboard */,
 				6379D8241F95F43400C55ECC /* Assets.xcassets */,
@@ -226,6 +229,7 @@
 				6379D83E1F95F4C200C55ECC /* SingleSelectionVideoVC.swift in Sources */,
 				6379D8401F95F4C200C55ECC /* MultiSelectImageToVideoVC.swift in Sources */,
 				6379D83D1F95F4C200C55ECC /* MultiSelectImageVC.swift in Sources */,
+				635C7B741F9DEA08005AC3DB /* sssViewController.swift in Sources */,
 				6379D8411F95F4C200C55ECC /* SingleSelectionVC.swift in Sources */,
 				6379D83F1F95F4C200C55ECC /* ViewController.swift in Sources */,
 				6379D81E1F95F43400C55ECC /* AppDelegate.swift in Sources */,

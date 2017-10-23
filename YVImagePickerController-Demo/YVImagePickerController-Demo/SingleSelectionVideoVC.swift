@@ -41,7 +41,7 @@ class SingleSelectionVideoVC: UIViewController, YVImagePickerControllerDelegate 
         pickerVC.yvmediaType = . video
         pickerVC.yvcolumns = 4
         pickerVC.yvIsMultiselect = false
-        pickerVC.delegate = self
+        pickerVC.yvdelegate = self
         self.present(pickerVC, animated: true, completion: nil)
     }
     

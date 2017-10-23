@@ -11,6 +11,7 @@ import PhotosUI
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
+let iPhoneX = "iPhone X"
 
 
 
@@ -53,7 +54,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     
     
     open  var topView: UIView!
-    weak open var delegate: YVImagePickerControllerDelegate!
+    weak open var yvdelegate: YVImagePickerControllerDelegate!
     
     
     //全部相册的数组
@@ -192,7 +193,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     private func initUI() {
         
         if assets == nil {self.assets = photoAlbums.first! }
-        let photoAlbumBtnFrame = CGRect(x: (ScreenWidth-150)/2, y: 20, width: 150, height: 44)
+        let photoAlbumBtnFrame = CGRect(x: (ScreenWidth-150)/2, y: yvRealHeight()-44, width: 150, height: 44)
         photoAlbumBtn = UIButton(frame: photoAlbumBtnFrame)
         photoAlbumBtn.setTitle(assets.keys.first, for: .normal)
         photoAlbumBtn.setTitleColor(UIColor.white, for: .normal)
@@ -217,7 +218,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
-        let imageCollVFrame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
+        let imageCollVFrame = CGRect(x: 0, y: yvRealHeight(), width: ScreenWidth, height: ScreenHeight-yvRealHeight())
         
         imageCollV = UICollectionView(frame: imageCollVFrame, collectionViewLayout: layout)
         imageCollV.backgroundColor = UIColor.white
@@ -228,7 +229,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         imageCollV.register(YVImagePickerCell.self, forCellWithReuseIdentifier: "YVImagePickerCell")
         if yvIsMultiselect == true {
             //多选
-            let nextBtnFrame = CGRect(x: ScreenWidth-20-70, y: 20, width: 70, height: 44)
+            let nextBtnFrame = CGRect(x: ScreenWidth-20-70, y: yvRealHeight()-44, width: 70, height: 44)
             nextBtn = UIButton(frame: nextBtnFrame)
             nextBtn.setTitle("下一步", for: .normal)
             nextBtn.addTarget(self, action: #selector(YVImagePickerController.didnextBtn), for: .touchUpInside)
@@ -236,10 +237,10 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         }else{  print("单选") }
     }
     func createYVTopView() {
-        let topFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
+        let topFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: yvRealHeight())
         topView = UIView(frame: topFrame)
         topView.backgroundColor = topViewColor
-        let leftFrame = CGRect(x: 10, y: 20, width: 44, height: 44)
+        let leftFrame = CGRect(x: 10, y: yvRealHeight()-44, width: 44, height: 44)
         let leftBtn = UIButton(frame: leftFrame)
         leftBtn.addTarget(self, action: #selector(YVImagePickerController.didleftBtn), for: .touchUpInside)
         leftBtn.setTitle("取消", for: .normal)
@@ -247,8 +248,8 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         topView.addSubview(leftBtn)
     }
     @objc func didleftBtn()  {
-        if self.delegate != nil {
-            self.delegate.yvimagePickerControllerDidCancel(self)
+        if self.yvdelegate != nil {
+            self.yvdelegate.yvimagePickerControllerDidCancel(self)
         }
     }
     @objc func didphotoAlbumBtn() {
@@ -263,7 +264,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         photoAlbumTab.removeFromSuperview()
     }
     func addTab() {
-        let photoAlbumTabFrame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
+        let photoAlbumTabFrame = CGRect(x: 0, y: yvRealHeight(), width: ScreenWidth, height: ScreenHeight-yvRealHeight())
         photoAlbumTab = UITableView(frame: photoAlbumTabFrame, style: .plain)
         photoAlbumTab.dataSource = self
         photoAlbumTab.delegate = self
@@ -349,12 +350,12 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                     if asset as? AVURLAsset != nil {
                         let urlasset = asset as! AVURLAsset
                         DispatchQueue.main.async {
-                            self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": urlasset.url])
+                            self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": urlasset.url])
                         }
                     }else{
                         self?.exportAvailableVideo(asset: asset!, finished: { (videourl) in
                             DispatchQueue.main.async {
-                                self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": videourl])
+                                self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": videourl])
                             }
                         })
                     }
@@ -362,7 +363,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
             case .image:
                 photoManage.requestImageData(for: assets.first!.value[indexPath.row], options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                     DispatchQueue.main.async {
-                        self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedata": UIImage.init(data: imagedata!) as Any])
+                        self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedata": UIImage.init(data: imagedata!) as Any])
                     }
                 })
             }
@@ -457,8 +458,8 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                         YVLoadinger.shared.dismiss()
                         self?.view.isUserInteractionEnabled = true
                         
-                        if self?.delegate != nil {
-                            self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
+                        if self?.yvdelegate != nil {
+                            self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }
                     return
                     
@@ -469,8 +470,8 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     
     func preToEditor(_ phassets: Array<PHAsset>)  {
         
-        if self.delegate != nil {
-            self.delegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": phassets])
+        if self.yvdelegate != nil {
+            self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": phassets])
         }
         
         

@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-      
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -64,6 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+
 }
 
 

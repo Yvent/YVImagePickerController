@@ -39,7 +39,7 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         pickerVC.yvmediaType = .image
         pickerVC.yvcolumns = 4
         pickerVC.yvIsMultiselect = true
-        pickerVC.delegate = self
+        pickerVC.yvdelegate = self
         pickerVC.isEditImages = true
         self.present(pickerVC, animated: true, completion: nil)
     }

@@ -13,8 +13,9 @@ Swift 3.0+
 
 
 Step1
-将 YVImagePickerController文件夹中的文件 拖入项目
-
+````
+pod 'YVImagePickerController' ,'~> 1.0.5'
+````
 Step2
 在plist文件中加入
 

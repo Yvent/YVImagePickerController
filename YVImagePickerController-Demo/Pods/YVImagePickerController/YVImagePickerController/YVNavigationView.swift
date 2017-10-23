@@ -26,7 +26,7 @@ public extension YVNavigationViewDelegate where Self: UIViewController{
     }
     public func yvsetBackView(backView: UIView) {
         self.view.addSubview(backView)
-        backView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
+        backView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: yvRealHeight())
     }
 }
 
@@ -67,7 +67,7 @@ public class YVNavigationView: UIView {
                 leftitem.setTitle(lefttitle, for: .normal)
             }
             addSubview(leftitem)
-            leftitem.frame = CGRect(x: 5, y: 20, width: 44, height: 44)
+            leftitem.frame = CGRect(x: 5, y: yvRealHeight()-44, width: 44, height: 44)
             leftitem.addTarget(self, action: #selector(YVNavigationView.didleftitem), for: .touchUpInside)
         }
         if rightnamed != nil || righttitle != nil{
@@ -78,7 +78,7 @@ public class YVNavigationView: UIView {
                 rightitem.setImage(UIImage(named: rightnamed!), for: .normal)
             }
             addSubview(rightitem)
-            rightitem.frame = CGRect(x: ScreenWidth-5-44, y: 20, width: 44, height: 44)
+            rightitem.frame = CGRect(x: ScreenWidth-5-44, y: yvRealHeight()-44, width: 44, height: 44)
             rightitem.addTarget(self, action: #selector(YVNavigationView.didrightitem), for: .touchUpInside)
         }
         
@@ -86,7 +86,7 @@ public class YVNavigationView: UIView {
         centeritem.textAlignment = .center
         centeritem.textColor = UIColor.white
         addSubview(centeritem)
-        centeritem.frame = CGRect(x: 50, y: 20, width: ScreenWidth-100, height: 44)
+        centeritem.frame = CGRect(x: 50, y: yvRealHeight()-44, width: ScreenWidth-100, height: 44)
     }
     @objc func didleftitem() {
         self.delegate?.yvdidleftitem()
