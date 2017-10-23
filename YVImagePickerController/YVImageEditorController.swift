@@ -23,7 +23,6 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
     var imageCollV: UICollectionView!
     
     var addPhotoBtn: UIButton!
-     let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
    open var phassets = Array<PHAsset>()
     
     var imageArr: Array<UIImage> = Array<UIImage>()
@@ -95,12 +94,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         addPhotoBtn.backgroundColor = YVNavColor
         addPhotoBtn.addTarget(self, action: #selector(YVImageEditorController.doaddPhotoBtn), for: .touchUpInside)
         self.view.addSubview(addPhotoBtn)
-        
-       
-        loadingV.center = self.view.center
-        loadingV.color = UIColor.black
-        self.view.addSubview(loadingV)
-    
+
     }
     func compressImage(_ image: UIImage) -> Data {
         
@@ -122,7 +116,6 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         return resize!
     }
     @objc func doaddPhotoBtn() {
-        
         
         let imageP = YVImagePickerController()
         imageP.yvIsMultiselect = true
@@ -152,21 +145,10 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         if phassets.count == 0 {
              self.dismiss(animated: true, completion: nil)
         }else{
-        
-            if loadingV.isAnimating {
-                 loadingV.stopAnimating()
-                 self.view.isUserInteractionEnabled = true
-            }else{
-               loadingV.startAnimating()
-                self.view.isUserInteractionEnabled = false
-            }
             
-           
+           YVLoadinger.shared.show()
             var imageArrCopt = [UIImage]()
               var imageArrCopy = [UIImage]()
-            
-            
-            
             
             for item in phassets{
                 
@@ -175,11 +157,8 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
                     let image = UIImage.init(data: imagedata!)
                     imageArrCopt.append((image?.fixOrientation1())!)
                     
-                    
-                    
                     if imageArrCopt.count == self?.phassets.count {
-                    
-//                    print("\(imageArrCopt)")
+
                         for item in imageArrCopt {
                             
                             
@@ -200,7 +179,8 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
                                         
                                         DispatchQueue.main.async {
                                             self?.finished(fileURL,(self?.phassets)!)
-                                            self?.loadingV.stopAnimating()
+//                                           YVLoadinger.dismiss()
+                                            YVLoadinger.shared.dismiss()
                                             self?.view.isUserInteractionEnabled = true
                                             self?.dismiss(animated: true, completion: nil)
                                         }
@@ -326,13 +306,4 @@ extension YVImageEditorController:  YVImagePickerControllerDelegate{
         dismiss(animated: true, completion: nil)
     }
 }
-extension UIImage {
-    
-    //裁剪图片
-    func yv_cropImage(rect: CGRect) -> UIImage {
-        let sourceImageRef = self.cgImage
-        let newImageRef = sourceImageRef!.cropping(to: rect)
-        let newImage = UIImage(cgImage: newImageRef!)
-        return newImage
-    }
-}
+

@@ -10,12 +10,11 @@ import UIKit
 import AVFoundation
 import YVImagePickerController
 class SingleSelectionVideoVC: UIViewController, YVImagePickerControllerDelegate  {
-
+    
     
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
-    
     
     
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class SingleSelectionVideoVC: UIViewController, YVImagePickerControllerDelegate 
         self.view.backgroundColor = UIColor.white
         addNavRightItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,19 +49,26 @@ class SingleSelectionVideoVC: UIViewController, YVImagePickerControllerDelegate 
     func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if info["videodata"] != nil{
-            let videoUrl = info["videodata"] as! URL
             
-             let playerItem = AVPlayerItem(url:  videoUrl)
-            self.player = AVPlayer(playerItem: playerItem)
-            self.playerLayer = AVPlayerLayer(player: self.player)
-            self.playerLayer.backgroundColor = UIColor.gray.cgColor
-            self.playerLayer.frame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
-            self.view.layer.addSublayer(self.playerLayer)
-            self.player.play()
+            let url = info["videodata"] as! URL
+            let ccnovvor = YVVideoEditorViewController()
+            ccnovvor.inputVideoUrl = url
+            ccnovvor.outputVideoUrl = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last! + "/YVPicker_temp.mp4")
+            ccnovvor.finished = { [weak self] (url) in
+                
+                let playerItem = AVPlayerItem(url:  url)
+                self?.player = AVPlayer(playerItem: playerItem)
+                self?.playerLayer = AVPlayerLayer(player: self?.player)
+                self?.playerLayer.backgroundColor = UIColor.gray.cgColor
+                self?.playerLayer.frame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
+                self?.view.layer.addSublayer((self?.playerLayer)!)
+                self?.player.play()
+            }
+            self.present(ccnovvor, animated: true, completion: nil)
         }
     }
     func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
 }

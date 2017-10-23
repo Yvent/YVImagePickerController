@@ -33,28 +33,28 @@ public enum yvPHAuthorizationStatus : Int {
 open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
     
     
-    ///导出视频的路径
-  open  var yvOutputPath: String = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last! + "/YV_Available.mp4"
-    ///多选时最大张数
-   open var yvmaxSelected = 10
-    ///列数
-   open var yvcolumns = 4
-    ///导航栏背景色
-   open var topViewColor: UIColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
-    ///过滤相册时上下icon
-  open  var arrowUpName: String?
-  open  var arrowDownName: String?
-    ///媒体类型：照片或视频
-  open  var yvmediaType: yvMediaType = .image
-    ///是否多选，默认单选
-  open  var yvIsMultiselect: Bool! = false
-    ///多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
-   open var isEditImages: Bool = false
+    //当导出的视频为AVURLAsset不需要，输出视频URL
+    open  var outputVideoUrl: URL! = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last! + "/YVPicker_temp.mp4")
+    //多选时最大张数
+    open var yvmaxSelected = 10
+    //列数
+    open var yvcolumns = 4
+    //导航栏背景色
+    open var topViewColor: UIColor = UIColor(red: 88/255.0, green: 197/255.0, blue: 141/255.0, alpha: 1)
+    //过滤相册时上下icon
+    open  var arrowUpName: String?
+    open  var arrowDownName: String?
+    //媒体类型：照片或视频
+    open  var yvmediaType: yvMediaType = .image
+    //是否多选，默认单选
+    open  var yvIsMultiselect: Bool! = false
+    //多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
+    open var isEditImages: Bool = false
     
     
-   open  var topView: UIView!
+    open  var topView: UIView!
     weak open var delegate: YVImagePickerControllerDelegate!
-    let loadingV: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
     
     //全部相册的数组
     private(set) var photoAlbums    = [[String: PHFetchResult<PHAsset>]]()
@@ -234,11 +234,6 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
             nextBtn.addTarget(self, action: #selector(YVImagePickerController.didnextBtn), for: .touchUpInside)
             topView.addSubview(nextBtn)
         }else{  print("单选") }
-        
-        loadingV.center = self.view.center
-        loadingV.color = UIColor.black
-        self.view.addSubview(loadingV)
-        
     }
     func createYVTopView() {
         let topFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 64)
@@ -251,7 +246,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         self.view.addSubview(topView)
         topView.addSubview(leftBtn)
     }
-     @objc func didleftBtn()  {
+    @objc func didleftBtn()  {
         if self.delegate != nil {
             self.delegate.yvimagePickerControllerDidCancel(self)
         }
@@ -286,7 +281,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         }
     }
     
-   open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assets.first!.value.count
     }
     
@@ -400,10 +395,11 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     func exportAvailableVideo(asset: AVAsset,finished: @escaping ((_ url: URL)->())) {
         let exporterSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)
         exporterSession?.outputFileType = AVFileTypeQuickTimeMovie
-        exporterSession?.outputURL = URL(fileURLWithPath: self.yvOutputPath)
-        if FileManager.default.fileExists(atPath: self.yvOutputPath) {
+        exporterSession?.outputURL = self.outputVideoUrl
+        
+        if FileManager.default.fileExists(atPath: self.outputVideoUrl.path) {
             do {
-                try FileManager.default.removeItem(atPath: self.yvOutputPath)
+                try FileManager.default.removeItem(atPath: self.outputVideoUrl.path)
                 print("Downloaded dir creat success")
             }catch{
                 print("failed to create downloaded dir")
@@ -423,7 +419,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                 print("exporting")
             case .completed:
                 print("completed")
-                finished(URL(fileURLWithPath: self.yvOutputPath))
+                finished(self.outputVideoUrl)
             }
         })
     }
@@ -448,16 +444,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     
     func phassetsToImages(_ phassets: Array<PHAsset>) {
-//        loadingV.stopAnimating()
-        
-        if loadingV.isAnimating {
-            loadingV.stopAnimating()
-            self.view.isUserInteractionEnabled = true
-        }else{
-            loadingV.startAnimating()
-            self.view.isUserInteractionEnabled = false
-        }
-        
+        YVLoadinger.shared.show()
         var yvimages = Array<UIImage>()
         
         for item in phassets{
@@ -467,9 +454,9 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                 yvimages.append((image?.fixOrientation1())!)
                 if yvimages.count == phassets.count {
                     DispatchQueue.main.async {
-                        self?.loadingV.stopAnimating()
+                        YVLoadinger.shared.dismiss()
                         self?.view.isUserInteractionEnabled = true
-
+                        
                         if self?.delegate != nil {
                             self?.delegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }
@@ -481,7 +468,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     
     func preToEditor(_ phassets: Array<PHAsset>)  {
-  
+        
         if self.delegate != nil {
             self.delegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": phassets])
         }
