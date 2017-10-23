@@ -14,7 +14,7 @@ Swift 3.0+
 
 Step1
 ````
-pod 'YVImagePickerController' ,'~> 1.0.5'
+pod 'YVImagePickerController' ,'~> 1.0.6'
 ````
 Step2
 在plist文件中加入
