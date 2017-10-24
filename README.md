@@ -51,4 +51,8 @@ self.present(pickerVC, animated: true, completion: nil)
     
  func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {}
 ````
-我的博客http://www.jianshu.com/p/ae85bcd5ec73
+
+问题
+
+发现bug或好的建议欢迎 [issues](https://github.com/Yvent/YVImagePickerController/issues) or Email Yvente@163.com
+
