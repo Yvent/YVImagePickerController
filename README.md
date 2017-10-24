@@ -14,7 +14,7 @@ Swift 3.0+
 
 Step1
 ````
-pod 'YVImagePickerController' ,'~> 1.0.6'
+pod 'YVImagePickerController' ,'~> 1.0.7'
 ````
 Step2
 在plist文件中加入
@@ -41,6 +41,9 @@ self.present(pickerVC, animated: true, completion: nil)
 | topViewColor | 导航栏背景色 |
 | yvmediaType  | 媒体类型：照片或视频  |
 | yvIsMultiselect | 是否多选，默认单选  |
+| selectedBtn_nimage | 多选时，未选中image  |
+| selectedBtn_simage | 多选时，选中image  |
+
 
 实现代理方法 
 ````
