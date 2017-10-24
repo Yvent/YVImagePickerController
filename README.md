@@ -41,8 +41,8 @@ self.present(pickerVC, animated: true, completion: nil)
 | topViewColor | 导航栏背景色 |
 | yvmediaType  | 媒体类型：照片或视频  |
 | yvIsMultiselect | 是否多选，默认单选  |
-| selectedBtn_nimage | 多选时，未选中image  |
-| selectedBtn_simage | 多选时，选中image  |
+| selectedBtn_nimage | 多选时，未选中image(可选)  |
+| selectedBtn_simage | 多选时，选中image(可选)  |
 
 
 实现代理方法 
