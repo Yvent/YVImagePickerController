@@ -3,29 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D36BACFC1C5994BAB49DAC2DAFD730E /* YVImagePickerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A3AC2D15FB4D005C5B17F67B79EAC7 /* YVImagePickerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D36BACFC1C5994BAB49DAC2DAFD730E /* YVImagePickerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B90B9C4B957D8203A8640D208E0712E4 /* YVImagePickerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		118BA56118B0BA328FB5219AAF91F06E /* Pods-YVImagePickerController-Demo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C318F4B2D1075A53C8401CAC8F274AE9 /* Pods-YVImagePickerController-Demo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		11C743BF0C41F86F4264BAA36F497450 /* YVSplitVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55A263657389F63818D469F32F396F5 /* YVSplitVideoManager.swift */; };
+		1A1A62D92998DD53C4CBABC1723342DE /* YVImageEditorCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABE09D37EFE01DA1C2D889B0BE2B237 /* YVImageEditorCollVCell.swift */; };
+		1EBA8B0DD5CFAF08A5394B13872B9057 /* YVImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F2FB12708C85F9942D23BF9698B4 /* YVImagePickerCell.swift */; };
+		28E99A41045C0B510860F8003A9BDECE /* YVVideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF0035A2961645C040344997A78D479 /* YVVideoEditorViewController.swift */; };
 		2AA2B68E20CFB4038779EACDB565240E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		3629484A646A12AC321CA9CAD3295868 /* UIImageEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11490C88F87B158E55D7776EBA48DEBF /* UIImageEXT.swift */; };
-		36DC7FE6D5D9169160157D5780228B35 /* YVSplitVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B87C3BEF3E1DC8696602208DE656EE /* YVSplitVideoCell.swift */; };
-		57E2B0D38F9241A517EFFEEDAB56D16D /* CXEImagesToVideoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A07C16B4A1742D6867A339ACB269DC1 /* CXEImagesToVideoSync.swift */; };
-		5AF219084E3CD73D0C8B888A5C5F3860 /* YVImagePickerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E2A8CF457A9A6CED70BCB6BD21882 /* YVImagePickerController-dummy.m */; };
-		63B6DA511F9F1C8900BC16C4 /* YVGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6DA501F9F1C8800BC16C4 /* YVGlobal.swift */; };
+		52EEBAE38F4CDD3A02043A7418B3C064 /* UIImageEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9747260DAF0143E37D754E0EB94716EF /* UIImageEXT.swift */; };
 		6599BE80BBB322387AB50E534C26BD4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		6FAD3A3B03981D67800AD08E1D95C827 /* YVImageEditorCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33953B9FF027E5534310087202220806 /* YVImageEditorCollVCell.swift */; };
-		78C5A05401AF6A47D8C32C6D2539F44E /* YVImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B474C1AE4C671E14C44B611D65886D /* YVImagePickerController.swift */; };
-		A19FEE38A54F3E2DCEA9500D6A7A468B /* YVImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E431F6232855D721232369F377FACF /* YVImagePickerController.bundle */; };
-		A3C4ABC8FD8896895B0A2F706ECEA82A /* YVLoadinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E68E2B7265A582E8DCCBC433410D /* YVLoadinger.swift */; };
-		A91458139C47DD7B91CD8260DE994CE0 /* YVNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED7F765F49067873A5E6C34367EE3C /* YVNavigationView.swift */; };
-		B1F4843CDEB0858B0410E1C3CBC25F29 /* CXEImagesToVideoAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488FFD960AE9606A029500B7950CCB3A /* CXEImagesToVideoAsync.swift */; };
-		C5CDDBB119284288BBE65482CB499B64 /* YVImageEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8332D5B2508618993517EC6BC15DB /* YVImageEditorController.swift */; };
-		D2F6D60D72B9777B80BCC30B3AFFA801 /* YVImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D22DD73148D713DE0200CC917C1DC3 /* YVImagePickerCell.swift */; };
-		D5C056E1CBCC8C3EE1DAE4E871C35DF9 /* YVVideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF63B0DD00A19B835C39071AE2CA76 /* YVVideoEditorViewController.swift */; };
+		6AE025041BAD03DD44796C7AFD41ED93 /* YVGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0096A8D1BC4DCEDE25FCBB0136759A5 /* YVGlobal.swift */; };
+		7554288EBBD5A0F69DA55CEFE801FC61 /* YVSplitVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9015AF5DD1066BC4816F1E73B79DA651 /* YVSplitVideoCell.swift */; };
+		76176A11184C24D3516C6DF4404193AD /* YVSplitVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DF356F302C2C12482637787C48AAC /* YVSplitVideoManager.swift */; };
+		82B7569EA59E04BBE071835CD30BE53D /* YVImageEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11A48ECE03F9332192DB17B6E6AD46 /* YVImageEditorController.swift */; };
+		9378E6570E1250F3C72F30550A803F39 /* CXEImagesToVideoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3484840E320EE0A38AB0C5A479F84 /* CXEImagesToVideoSync.swift */; };
+		9DD32FC332A09B7038C0E55EA93FCFB6 /* YVImagePickerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C029CE5CE717AD0BB08B10A52CFCF3 /* YVImagePickerController-dummy.m */; };
+		A1663CFD49AE5509B98559F98795E26E /* YVLoadinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1F9A60534A79FB4EBC2B04F689AC3 /* YVLoadinger.swift */; };
+		A19FEE38A54F3E2DCEA9500D6A7A468B /* YVImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 581CD0D5E4801E30837E3CEF4F78D301 /* YVImagePickerController.bundle */; };
+		B0A7E748E1E9B9D34802103A4C59B7CC /* YVNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D850293E32A2AA184E92FCF3FD9BE8 /* YVNavigationView.swift */; };
+		C7B7299CF1231A7015F6F491B2621B7B /* CXEImagesToVideoAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D0F567FC41C8B2BB1836068C6DB2E6 /* CXEImagesToVideoAsync.swift */; };
+		CD15DD602375448EA7C8B70C5999990B /* YVImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D8995D75767B97185CBDEE9A8E3D1 /* YVImagePickerController.swift */; };
 		F19FFBA25D562361EEB36BB7AE57AF52 /* Pods-YVImagePickerController-Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E3CFB274811B1B14C8F68E25A545A6 /* Pods-YVImagePickerController-Demo-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -40,40 +40,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09C5C1C71E64C58C46D0D5A94A085A4B /* YVImagePickerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = YVImagePickerController.modulemap; sourceTree = "<group>"; };
-		11490C88F87B158E55D7776EBA48DEBF /* UIImageEXT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageEXT.swift; path = YVImagePickerController/UIImageEXT.swift; sourceTree = "<group>"; };
-		115277969A1C9262F8D604FB22B6A754 /* Pods-YVImagePickerController-Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-YVImagePickerController-Demo.modulemap"; sourceTree = "<group>"; };
-		28A1E68E2B7265A582E8DCCBC433410D /* YVLoadinger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVLoadinger.swift; path = YVImagePickerController/YVLoadinger.swift; sourceTree = "<group>"; };
-		297D99A766F5945A98F148B44C4E08FC /* YVImagePickerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YVImagePickerController.xcconfig; sourceTree = "<group>"; };
+		115277969A1C9262F8D604FB22B6A754 /* Pods-YVImagePickerController-Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YVImagePickerController-Demo.modulemap"; sourceTree = "<group>"; };
+		20B3484840E320EE0A38AB0C5A479F84 /* CXEImagesToVideoSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CXEImagesToVideoSync.swift; path = YVImagePickerController/CXEImagesToVideoSync.swift; sourceTree = "<group>"; };
+		2AF0035A2961645C040344997A78D479 /* YVVideoEditorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVVideoEditorViewController.swift; path = YVImagePickerController/YVVideoEditorViewController.swift; sourceTree = "<group>"; };
+		2C57F2FB12708C85F9942D23BF9698B4 /* YVImagePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImagePickerCell.swift; path = YVImagePickerController/YVImagePickerCell.swift; sourceTree = "<group>"; };
 		3025D6F6288453D5F211DB8F4A256CCB /* Pods-YVImagePickerController-Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YVImagePickerController-Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		33953B9FF027E5534310087202220806 /* YVImageEditorCollVCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImageEditorCollVCell.swift; path = YVImagePickerController/YVImageEditorCollVCell.swift; sourceTree = "<group>"; };
+		3C30A70F615DE03D4399198CEF2A5C87 /* YVImagePickerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YVImagePickerController.modulemap; sourceTree = "<group>"; };
+		43D850293E32A2AA184E92FCF3FD9BE8 /* YVNavigationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVNavigationView.swift; path = YVImagePickerController/YVNavigationView.swift; sourceTree = "<group>"; };
 		486A6E769A8AC8C107408A4C775102F6 /* Pods-YVImagePickerController-Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YVImagePickerController-Demo-acknowledgements.plist"; sourceTree = "<group>"; };
-		488FFD960AE9606A029500B7950CCB3A /* CXEImagesToVideoAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CXEImagesToVideoAsync.swift; path = YVImagePickerController/CXEImagesToVideoAsync.swift; sourceTree = "<group>"; };
-		48ED7F765F49067873A5E6C34367EE3C /* YVNavigationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVNavigationView.swift; path = YVImagePickerController/YVNavigationView.swift; sourceTree = "<group>"; };
 		499298CCA19C483A8F45304CE23F2543 /* Pods-YVImagePickerController-Demo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YVImagePickerController-Demo-resources.sh"; sourceTree = "<group>"; };
-		4A5F460E8F7D70D3106FA213C8116090 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61B474C1AE4C671E14C44B611D65886D /* YVImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImagePickerController.swift; path = YVImagePickerController/YVImagePickerController.swift; sourceTree = "<group>"; };
+		581CD0D5E4801E30837E3CEF4F78D301 /* YVImagePickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = YVImagePickerController.bundle; path = YVImagePickerController/YVImagePickerController.bundle; sourceTree = "<group>"; };
+		5D9DF356F302C2C12482637787C48AAC /* YVSplitVideoManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVSplitVideoManager.swift; path = YVImagePickerController/YVSplitVideoManager.swift; sourceTree = "<group>"; };
 		62E3CFB274811B1B14C8F68E25A545A6 /* Pods-YVImagePickerController-Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YVImagePickerController-Demo-dummy.m"; sourceTree = "<group>"; };
-		63B6DA501F9F1C8800BC16C4 /* YVGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YVGlobal.swift; path = YVImagePickerController/YVGlobal.swift; sourceTree = "<group>"; };
 		6983F16FC106C9FC3F19CC1C981AF270 /* Pods-YVImagePickerController-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YVImagePickerController-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		6A07C16B4A1742D6867A339ACB269DC1 /* CXEImagesToVideoSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CXEImagesToVideoSync.swift; path = YVImagePickerController/CXEImagesToVideoSync.swift; sourceTree = "<group>"; };
-		7DB8332D5B2508618993517EC6BC15DB /* YVImageEditorController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImageEditorController.swift; path = YVImagePickerController/YVImageEditorController.swift; sourceTree = "<group>"; };
-		86B87C3BEF3E1DC8696602208DE656EE /* YVSplitVideoCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVSplitVideoCell.swift; path = YVImagePickerController/YVSplitVideoCell.swift; sourceTree = "<group>"; };
-		87D22DD73148D713DE0200CC917C1DC3 /* YVImagePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImagePickerCell.swift; path = YVImagePickerController/YVImagePickerCell.swift; sourceTree = "<group>"; };
-		8A2E2A8CF457A9A6CED70BCB6BD21882 /* YVImagePickerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YVImagePickerController-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97EF63B0DD00A19B835C39071AE2CA76 /* YVVideoEditorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVVideoEditorViewController.swift; path = YVImagePickerController/YVVideoEditorViewController.swift; sourceTree = "<group>"; };
+		7DD1F9A60534A79FB4EBC2B04F689AC3 /* YVLoadinger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVLoadinger.swift; path = YVImagePickerController/YVLoadinger.swift; sourceTree = "<group>"; };
+		826A1F5AF3857D6E99457A872A4D9254 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9015AF5DD1066BC4816F1E73B79DA651 /* YVSplitVideoCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVSplitVideoCell.swift; path = YVImagePickerController/YVSplitVideoCell.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9747260DAF0143E37D754E0EB94716EF /* UIImageEXT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageEXT.swift; path = YVImagePickerController/UIImageEXT.swift; sourceTree = "<group>"; };
 		A3ACDEC79173184028A481DE3488E356 /* Pods-YVImagePickerController-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YVImagePickerController-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		A4919419D44E77392E838D87E711279D /* Pods-YVImagePickerController-Demo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YVImagePickerController-Demo-frameworks.sh"; sourceTree = "<group>"; };
-		B6D9371919B02AD07C001671562126F7 /* YVImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YVImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A3AC2D15FB4D005C5B17F67B79EAC7 /* YVImagePickerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YVImagePickerController-umbrella.h"; sourceTree = "<group>"; };
-		BA65AAD06AEDE3FB6B1E3631A89DC988 /* YVImagePickerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YVImagePickerController-prefix.pch"; sourceTree = "<group>"; };
+		AD0D8995D75767B97185CBDEE9A8E3D1 /* YVImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImagePickerController.swift; path = YVImagePickerController/YVImagePickerController.swift; sourceTree = "<group>"; };
+		B6D9371919B02AD07C001671562126F7 /* YVImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YVImagePickerController.framework; path = YVImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90B9C4B957D8203A8640D208E0712E4 /* YVImagePickerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YVImagePickerController-umbrella.h"; sourceTree = "<group>"; };
+		BBC0BC9A91AFB7421B8E3345ECD42BC0 /* YVImagePickerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YVImagePickerController-prefix.pch"; sourceTree = "<group>"; };
+		BE11A48ECE03F9332192DB17B6E6AD46 /* YVImageEditorController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImageEditorController.swift; path = YVImagePickerController/YVImageEditorController.swift; sourceTree = "<group>"; };
 		C318F4B2D1075A53C8401CAC8F274AE9 /* Pods-YVImagePickerController-Demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YVImagePickerController-Demo-umbrella.h"; sourceTree = "<group>"; };
+		C3D0F567FC41C8B2BB1836068C6DB2E6 /* CXEImagesToVideoAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CXEImagesToVideoAsync.swift; path = YVImagePickerController/CXEImagesToVideoAsync.swift; sourceTree = "<group>"; };
 		CA0F47C62AA31EEF97575411F330C35E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E6B4FF91BF2D73973C8DEC3AC7BA4B46 /* Pods_YVImagePickerController_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YVImagePickerController_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F55A263657389F63818D469F32F396F5 /* YVSplitVideoManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVSplitVideoManager.swift; path = YVImagePickerController/YVSplitVideoManager.swift; sourceTree = "<group>"; };
-		F5E431F6232855D721232369F377FACF /* YVImagePickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = YVImagePickerController.bundle; path = YVImagePickerController/YVImagePickerController.bundle; sourceTree = "<group>"; };
+		DABE09D37EFE01DA1C2D889B0BE2B237 /* YVImageEditorCollVCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVImageEditorCollVCell.swift; path = YVImagePickerController/YVImageEditorCollVCell.swift; sourceTree = "<group>"; };
+		E0096A8D1BC4DCEDE25FCBB0136759A5 /* YVGlobal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YVGlobal.swift; path = YVImagePickerController/YVGlobal.swift; sourceTree = "<group>"; };
+		E1C029CE5CE717AD0BB08B10A52CFCF3 /* YVImagePickerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YVImagePickerController-dummy.m"; sourceTree = "<group>"; };
+		E6B4FF91BF2D73973C8DEC3AC7BA4B46 /* Pods_YVImagePickerController_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YVImagePickerController_Demo.framework; path = "Pods-YVImagePickerController-Demo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91F095DC85E1E5EFBBA78E08F6DDF65 /* YVImagePickerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YVImagePickerController.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD5CD8C987FF3900D152E7C7538F01B /* YVImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				C3D0F567FC41C8B2BB1836068C6DB2E6 /* CXEImagesToVideoAsync.swift */,
+				20B3484840E320EE0A38AB0C5A479F84 /* CXEImagesToVideoSync.swift */,
+				9747260DAF0143E37D754E0EB94716EF /* UIImageEXT.swift */,
+				E0096A8D1BC4DCEDE25FCBB0136759A5 /* YVGlobal.swift */,
+				DABE09D37EFE01DA1C2D889B0BE2B237 /* YVImageEditorCollVCell.swift */,
+				BE11A48ECE03F9332192DB17B6E6AD46 /* YVImageEditorController.swift */,
+				2C57F2FB12708C85F9942D23BF9698B4 /* YVImagePickerCell.swift */,
+				AD0D8995D75767B97185CBDEE9A8E3D1 /* YVImagePickerController.swift */,
+				7DD1F9A60534A79FB4EBC2B04F689AC3 /* YVLoadinger.swift */,
+				43D850293E32A2AA184E92FCF3FD9BE8 /* YVNavigationView.swift */,
+				9015AF5DD1066BC4816F1E73B79DA651 /* YVSplitVideoCell.swift */,
+				5D9DF356F302C2C12482637787C48AAC /* YVSplitVideoManager.swift */,
+				2AF0035A2961645C040344997A78D479 /* YVVideoEditorViewController.swift */,
+				D55EBBE3F90D36CD1D4C281FAAEF5437 /* Resources */,
+				64760544BE815770579DCC329992714D /* Support Files */,
+			);
+			name = YVImagePickerController;
+			path = YVImagePickerController;
+			sourceTree = "<group>";
+		};
 		19C3C0D29FD999741A4F3B21DF4FE3A1 /* Pods-YVImagePickerController-Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +145,20 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		64760544BE815770579DCC329992714D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				826A1F5AF3857D6E99457A872A4D9254 /* Info.plist */,
+				3C30A70F615DE03D4399198CEF2A5C87 /* YVImagePickerController.modulemap */,
+				E91F095DC85E1E5EFBBA78E08F6DDF65 /* YVImagePickerController.xcconfig */,
+				E1C029CE5CE717AD0BB08B10A52CFCF3 /* YVImagePickerController-dummy.m */,
+				BBC0BC9A91AFB7421B8E3345ECD42BC0 /* YVImagePickerController-prefix.pch */,
+				B90B9C4B957D8203A8640D208E0712E4 /* YVImagePickerController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YVImagePickerController";
+			sourceTree = "<group>";
+		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,40 +172,18 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				946B7E6927B8F3FFA1A55C4F9083C931 /* Pods */,
+				A89DDBBD3D3891FB6241A6AE1069067E /* Pods */,
 				C81A822A8760D06C747CED463F276967 /* Products */,
 				404A3B8BF7976FEAD6AFA575CCC3B574 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		828A27CC29284346A46E9E282F070F22 /* Support Files */ = {
+		A89DDBBD3D3891FB6241A6AE1069067E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4A5F460E8F7D70D3106FA213C8116090 /* Info.plist */,
-				09C5C1C71E64C58C46D0D5A94A085A4B /* YVImagePickerController.modulemap */,
-				297D99A766F5945A98F148B44C4E08FC /* YVImagePickerController.xcconfig */,
-				8A2E2A8CF457A9A6CED70BCB6BD21882 /* YVImagePickerController-dummy.m */,
-				BA65AAD06AEDE3FB6B1E3631A89DC988 /* YVImagePickerController-prefix.pch */,
-				B8A3AC2D15FB4D005C5B17F67B79EAC7 /* YVImagePickerController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/YVImagePickerController";
-			sourceTree = "<group>";
-		};
-		946B7E6927B8F3FFA1A55C4F9083C931 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CF9B9EB00F1A1AB62666C47B9701D538 /* YVImagePickerController */,
+				0CD5CD8C987FF3900D152E7C7538F01B /* YVImagePickerController */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B60FA0CCF838037E08D59027EF18FBB3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F5E431F6232855D721232369F377FACF /* YVImagePickerController.bundle */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -188,26 +203,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CF9B9EB00F1A1AB62666C47B9701D538 /* YVImagePickerController */ = {
+		D55EBBE3F90D36CD1D4C281FAAEF5437 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				63B6DA501F9F1C8800BC16C4 /* YVGlobal.swift */,
-				488FFD960AE9606A029500B7950CCB3A /* CXEImagesToVideoAsync.swift */,
-				6A07C16B4A1742D6867A339ACB269DC1 /* CXEImagesToVideoSync.swift */,
-				11490C88F87B158E55D7776EBA48DEBF /* UIImageEXT.swift */,
-				33953B9FF027E5534310087202220806 /* YVImageEditorCollVCell.swift */,
-				7DB8332D5B2508618993517EC6BC15DB /* YVImageEditorController.swift */,
-				87D22DD73148D713DE0200CC917C1DC3 /* YVImagePickerCell.swift */,
-				61B474C1AE4C671E14C44B611D65886D /* YVImagePickerController.swift */,
-				28A1E68E2B7265A582E8DCCBC433410D /* YVLoadinger.swift */,
-				48ED7F765F49067873A5E6C34367EE3C /* YVNavigationView.swift */,
-				86B87C3BEF3E1DC8696602208DE656EE /* YVSplitVideoCell.swift */,
-				F55A263657389F63818D469F32F396F5 /* YVSplitVideoManager.swift */,
-				97EF63B0DD00A19B835C39071AE2CA76 /* YVVideoEditorViewController.swift */,
-				B60FA0CCF838037E08D59027EF18FBB3 /* Resources */,
-				828A27CC29284346A46E9E282F070F22 /* Support Files */,
+				581CD0D5E4801E30837E3CEF4F78D301 /* YVImagePickerController.bundle */,
 			);
-			path = YVImagePickerController;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC02A48F2881D9CEE2871927F229B26F /* Build configuration list for PBXNativeTarget "YVImagePickerController" */;
 			buildPhases = (
-				527364947E1E73840576919A5BCB76F1 /* Sources */,
+				683CBDFEDE9F3D2F440081710588EA01 /* Sources */,
 				E8FC3DABAA5803EB85992268EA33ADB6 /* Frameworks */,
 				45EB66B39FB68C707CF1DD456B32E5FF /* Resources */,
 				D3A94464988E845971126DEFBA058BBE /* Headers */,
@@ -307,24 +308,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		527364947E1E73840576919A5BCB76F1 /* Sources */ = {
+		683CBDFEDE9F3D2F440081710588EA01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F4843CDEB0858B0410E1C3CBC25F29 /* CXEImagesToVideoAsync.swift in Sources */,
-				57E2B0D38F9241A517EFFEEDAB56D16D /* CXEImagesToVideoSync.swift in Sources */,
-				3629484A646A12AC321CA9CAD3295868 /* UIImageEXT.swift in Sources */,
-				63B6DA511F9F1C8900BC16C4 /* YVGlobal.swift in Sources */,
-				6FAD3A3B03981D67800AD08E1D95C827 /* YVImageEditorCollVCell.swift in Sources */,
-				C5CDDBB119284288BBE65482CB499B64 /* YVImageEditorController.swift in Sources */,
-				D2F6D60D72B9777B80BCC30B3AFFA801 /* YVImagePickerCell.swift in Sources */,
-				5AF219084E3CD73D0C8B888A5C5F3860 /* YVImagePickerController-dummy.m in Sources */,
-				78C5A05401AF6A47D8C32C6D2539F44E /* YVImagePickerController.swift in Sources */,
-				A3C4ABC8FD8896895B0A2F706ECEA82A /* YVLoadinger.swift in Sources */,
-				A91458139C47DD7B91CD8260DE994CE0 /* YVNavigationView.swift in Sources */,
-				36DC7FE6D5D9169160157D5780228B35 /* YVSplitVideoCell.swift in Sources */,
-				11C743BF0C41F86F4264BAA36F497450 /* YVSplitVideoManager.swift in Sources */,
-				D5C056E1CBCC8C3EE1DAE4E871C35DF9 /* YVVideoEditorViewController.swift in Sources */,
+				C7B7299CF1231A7015F6F491B2621B7B /* CXEImagesToVideoAsync.swift in Sources */,
+				9378E6570E1250F3C72F30550A803F39 /* CXEImagesToVideoSync.swift in Sources */,
+				52EEBAE38F4CDD3A02043A7418B3C064 /* UIImageEXT.swift in Sources */,
+				6AE025041BAD03DD44796C7AFD41ED93 /* YVGlobal.swift in Sources */,
+				1A1A62D92998DD53C4CBABC1723342DE /* YVImageEditorCollVCell.swift in Sources */,
+				82B7569EA59E04BBE071835CD30BE53D /* YVImageEditorController.swift in Sources */,
+				1EBA8B0DD5CFAF08A5394B13872B9057 /* YVImagePickerCell.swift in Sources */,
+				9DD32FC332A09B7038C0E55EA93FCFB6 /* YVImagePickerController-dummy.m in Sources */,
+				CD15DD602375448EA7C8B70C5999990B /* YVImagePickerController.swift in Sources */,
+				A1663CFD49AE5509B98559F98795E26E /* YVLoadinger.swift in Sources */,
+				B0A7E748E1E9B9D34802103A4C59B7CC /* YVNavigationView.swift in Sources */,
+				7554288EBBD5A0F69DA55CEFE801FC61 /* YVSplitVideoCell.swift in Sources */,
+				76176A11184C24D3516C6DF4404193AD /* YVSplitVideoManager.swift in Sources */,
+				28E99A41045C0B510860F8003A9BDECE /* YVVideoEditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +351,7 @@
 /* Begin XCBuildConfiguration section */
 		02E5DD433BEF8DB77AE78D51EB1BD15C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 297D99A766F5945A98F148B44C4E08FC /* YVImagePickerController.xcconfig */;
+			baseConfigurationReference = E91F095DC85E1E5EFBBA78E08F6DDF65 /* YVImagePickerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -462,7 +463,7 @@
 		};
 		829FA4362D1E8EC8CEDC5EF3F850285D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 297D99A766F5945A98F148B44C4E08FC /* YVImagePickerController.xcconfig */;
+			baseConfigurationReference = E91F095DC85E1E5EFBBA78E08F6DDF65 /* YVImagePickerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

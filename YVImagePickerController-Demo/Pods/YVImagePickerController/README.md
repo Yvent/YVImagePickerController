@@ -1,5 +1,5 @@
 # YVImagePickerController
-iOS -  支持单选，多选，视频和图片，多图合成幻灯片
+iOS -  支持单选，多选，视频和图片，多图合成幻灯片，视频剪辑
 
 ![image](https://github.com/Yvent/YVImagePickerController/blob/master/Resource/YVImagePickerController.gif)
 
@@ -14,7 +14,7 @@ Swift 3.0+
 
 Step1
 ````
-pod 'YVImagePickerController' ,'~> 1.0.5'
+pod 'YVImagePickerController' ,'~> 1.0.6'
 ````
 Step2
 在plist文件中加入
