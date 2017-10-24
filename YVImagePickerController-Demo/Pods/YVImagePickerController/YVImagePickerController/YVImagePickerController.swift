@@ -11,9 +11,6 @@ import PhotosUI
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
-let iPhoneX = "iPhone X"
-
-
 
 public protocol YVImagePickerControllerDelegate: class {
     func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
@@ -51,23 +48,18 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     open  var yvIsMultiselect: Bool! = false
     //多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
     open var isEditImages: Bool = false
-    
+    //多选按钮—normal
+    open var selectedBtn_nimage: UIImage?
+    //多选按钮—select
+    open var selectedBtn_simage: UIImage?
     
     open  var topView: UIView!
     weak open var yvdelegate: YVImagePickerControllerDelegate!
-    
-    
     //全部相册的数组
     private(set) var photoAlbums    = [[String: PHFetchResult<PHAsset>]]()
-    lazy var pickerPhotoSize:CGSize = {
-        let sreenBounds = UIScreen.main.bounds
-        let screenWidth = sreenBounds.width > sreenBounds.height ? sreenBounds.height : sreenBounds.width
-        let width = (screenWidth - CGFloat(2) * (CGFloat(2) - 1)) / CGFloat(3)
-        return CGSize(width: width, height: width)
-    }()
-    var cellsize: CGSize!
-    private var yvPHstatus: yvPHAuthorizationStatus!
     
+    var pickerPhotoSize: CGSize!
+    private var yvPHstatus: yvPHAuthorizationStatus!
     private var photoManage:PHImageManager!
     private var photoOption: PHImageRequestOptions!
     private let photoCreationDate = "modificationDate"
@@ -78,8 +70,6 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     var photoAlbumBtn: UIButton!
     var imageCollV: UICollectionView!
     var photoAlbumTab: UITableView!
-    
-    
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -140,8 +130,6 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     
     private func initoptions() {
-        
-        
         self.photoManage = PHImageManager()
         self.photoOption = PHImageRequestOptions()
         self.photoOption.resizeMode   = .fast
@@ -191,30 +179,25 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     
     private func initUI() {
-        
         if assets == nil {self.assets = photoAlbums.first! }
         let photoAlbumBtnFrame = CGRect(x: (ScreenWidth-150)/2, y: yvRealHeight()-44, width: 150, height: 44)
         photoAlbumBtn = UIButton(frame: photoAlbumBtnFrame)
         photoAlbumBtn.setTitle(assets.keys.first, for: .normal)
         photoAlbumBtn.setTitleColor(UIColor.white, for: .normal)
-        
         if arrowUpName != nil && arrowDownName != nil {
             self.photoAlbumBtn.setImage(UIImage(named: self.arrowUpName!), for: .normal)
             self.photoAlbumBtn.setImage(UIImage(named: self.arrowDownName!), for: .selected)
         }else{
             photoAlbumBtn.setTitle("\(assets.keys.first!) ▲", for: .normal)
             photoAlbumBtn.setTitle("\(assets.keys.first!) ▼", for: .selected)
-            
         }
-        
         photoAlbumBtn.addTarget(self, action: #selector(YVImagePickerController.didphotoAlbumBtn), for: .touchUpInside)
         photoAlbumBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 120, bottom: 0, right: 0)
         photoAlbumBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: -30, bottom: 0, right: 0)
         topView.addSubview(photoAlbumBtn)
-        
+        pickerPhotoSize = CGSize(width: (ScreenWidth-CGFloat(yvcolumns-1))/CGFloat(yvcolumns), height: (ScreenWidth-CGFloat(yvcolumns-1))/CGFloat(yvcolumns))
         let layout = UICollectionViewFlowLayout()
-        let yvitemSize = CGSize(width: (ScreenWidth-CGFloat(yvcolumns-1))/CGFloat(yvcolumns), height: (ScreenWidth-CGFloat(yvcolumns-1))/CGFloat(yvcolumns))
-        layout.itemSize = yvitemSize
+        layout.itemSize = pickerPhotoSize
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
@@ -222,7 +205,6 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         
         imageCollV = UICollectionView(frame: imageCollVFrame, collectionViewLayout: layout)
         imageCollV.backgroundColor = UIColor.white
-        
         imageCollV.delegate = self
         imageCollV.dataSource = self
         self.view.addSubview(imageCollV)
@@ -287,14 +269,15 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImagePickerCell", for: indexPath) as! YVImagePickerCell
+       
         let asset = assets.first!.value[indexPath.row]
         cell.tag = Int(
             photoManage.requestImage(for: asset, targetSize: pickerPhotoSize, contentMode: .aspectFit, options: photoOption, resultHandler: { (result, info) in
                 if result != nil {
                     if (info?["PHImageResultIsDegradedKey"] as! Bool) == true {
-                        
+                        // Do something with the FULL SIZED image
+                        //返回高清图片
                     }else{
                         cell.imageV.image = result!
                     }
@@ -320,6 +303,12 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         case .image:
             cell.timeLab.isHidden = true
         }
+        if selectedBtn_nimage != nil{
+            cell.closeBtn.setImage(selectedBtn_nimage, for: .normal)
+        }
+        if selectedBtn_simage != nil{
+            cell.closeBtn.setImage(selectedBtn_simage, for: .selected)
+        }
         return cell
     }
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -338,7 +327,6 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                 selectedAssets.append(assets.first!.value[indexPath.row])
             }
         }else{
-            
             switch yvmediaType {
             case .video:
                 //判断是否超过5分钟 300s
@@ -353,9 +341,9 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                             self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": urlasset.url])
                         }
                     }else{
-                        self?.exportAvailableVideo(asset: asset!, finished: { (videourl) in
+                        YVSplitVideoManager.shared.yvSplitVideo(asset!, videoTimeRange: nil, outUrl: (self?.outputVideoUrl)!, finished: {
                             DispatchQueue.main.async {
-                                self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": videourl])
+                                self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": self?.outputVideoUrl! as Any])
                             }
                         })
                     }
@@ -393,43 +381,11 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         self.imageCollV.reloadData()
         removeTab()
     }
-    func exportAvailableVideo(asset: AVAsset,finished: @escaping ((_ url: URL)->())) {
-        let exporterSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)
-        exporterSession?.outputFileType = AVFileTypeQuickTimeMovie
-        exporterSession?.outputURL = self.outputVideoUrl
-        
-        if FileManager.default.fileExists(atPath: self.outputVideoUrl.path) {
-            do {
-                try FileManager.default.removeItem(atPath: self.outputVideoUrl.path)
-                print("Downloaded dir creat success")
-            }catch{
-                print("failed to create downloaded dir")
-            }
-        }
-        exporterSession?.exportAsynchronously(completionHandler: { () -> Void in
-            switch exporterSession!.status {
-            case .unknown:
-                print("unknow")
-            case .cancelled:
-                print("cancelled")
-            case .failed:
-                print("failed")
-            case .waiting:
-                print("waiting")
-            case .exporting:
-                print("exporting")
-            case .completed:
-                print("completed")
-                finished(self.outputVideoUrl)
-            }
-        })
-    }
     func addReminder(title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let NoBtn = UIAlertAction(title: "取消", style: .cancel) { (action) in}
         alert.addAction(NoBtn)
         present(alert, animated: true, completion: nil)
-        
     }
     func toAuthorization() {
         let alert = UIAlertController(title: "无照片权限", message: "请在设置中授予照片访问权限", preferredStyle: .alert)
@@ -443,38 +399,32 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         alert.addAction(NoBtn)
         present(alert, animated: true, completion: nil)
     }
-    
+    //直接返回 UIImage
     func phassetsToImages(_ phassets: Array<PHAsset>) {
         YVLoadinger.shared.show()
+        self.view.isUserInteractionEnabled = false
         var yvimages = Array<UIImage>()
-        
         for item in phassets{
-            
             photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                 let image = UIImage.init(data: imagedata!)
-                yvimages.append((image?.fixOrientation1())!)
+                yvimages.append((image?.fixOrientation())!)
                 if yvimages.count == phassets.count {
                     DispatchQueue.main.async {
                         YVLoadinger.shared.dismiss()
                         self?.view.isUserInteractionEnabled = true
-                        
                         if self?.yvdelegate != nil {
                             self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
                         }                    }
                     return
-                    
                 }
             })
         }
     }
-    
+    //返回 PHAsset
     func preToEditor(_ phassets: Array<PHAsset>)  {
-        
         if self.yvdelegate != nil {
             self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": phassets])
         }
-        
-        
     }
 }
 extension Float{

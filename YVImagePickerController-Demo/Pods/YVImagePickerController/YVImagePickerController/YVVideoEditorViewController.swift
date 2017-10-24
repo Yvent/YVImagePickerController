@@ -275,6 +275,7 @@ open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegat
                     cell.imageV.image = yvimage
                 })
             } catch {
+                print("error")
             }
         }
         return cell
@@ -294,7 +295,6 @@ open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegat
             startt = Int64(CGFloat((scrollView.contentOffset.x - (-videoEditorView.frame.origin.x))/scrollView.contentSize.width)*CGFloat(yvvideoAsset.duration.value))
             starttCopy = startt+continuoust
             self.videoPlayer.seek(to: CMTimeMake(startt, yvvideoAsset.duration.timescale))
-            
             self.videoPlayer.play()
         }else{}
     }
@@ -320,7 +320,9 @@ open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegat
             }
         }
         YVLoadinger.shared.show()
-        YVSplitVideoManager.shared.yvSplitVideo(self.inputVideoUrl, videoTimeRange: CMTimeRange(start: CMTimeMake(startt, yvvideoAsset.duration.timescale), duration: CMTimeMake(continuoust, yvvideoAsset.duration.timescale)), outUrl: self.outputVideoUrl) { [weak self] in
+        self.view.isUserInteractionEnabled = false
+        let videoAsset = AVURLAsset(url: self.inputVideoUrl, options: nil)
+        YVSplitVideoManager.shared.yvSplitVideo(videoAsset, videoTimeRange: CMTimeRange(start: CMTimeMake(startt, yvvideoAsset.duration.timescale), duration: CMTimeMake(continuoust, yvvideoAsset.duration.timescale)), outUrl: self.outputVideoUrl) { [weak self] in
             DispatchQueue.main.async {
                 self?.dismiss(animated: true, completion: nil)
                 self?.finished((self?.outputVideoUrl)!)

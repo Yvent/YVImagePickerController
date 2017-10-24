@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import YVImagePickerController
 class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelegate {
-
+    
     
     
     var player: AVPlayer!
@@ -20,7 +20,7 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         self.view.backgroundColor = UIColor.white
         addNavRightItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,13 +49,10 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         
         if info["imagedatas"] != nil{
             let phassets = info["imagedatas"] as! Array<PHAsset>
-            
-                    let vc = YVImageEditorController()
-            
-                    vc.phassets = phassets
-                      vc.cellsize = CGSize(width: 200, height: 200)
+            let vc = YVImageEditorController()
+            vc.phassets = phassets
+            vc.cellsize = CGSize(width: 200, height: 200)
             vc.finished = { [weak self] (fileURL,assets) in
-                
                 let playerItem = AVPlayerItem(url:  fileURL)
                 self?.player = AVPlayer(playerItem: playerItem)
                 self?.playerLayer = AVPlayerLayer(player: self?.player)
@@ -63,11 +60,9 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
                 self?.playerLayer.frame = CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight-64)
                 self?.view.layer.addSublayer((self?.playerLayer)!)
                 self?.player.play()
-                
-                
             }
-                    self.present(vc, animated: true, completion: nil)
-          
+            self.present(vc, animated: true, completion: nil)
+            
         }
     }
     func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
