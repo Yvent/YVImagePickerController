@@ -41,6 +41,8 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         pickerVC.yvIsMultiselect = true
         pickerVC.yvdelegate = self
         pickerVC.isEditImages = true
+        pickerVC.topViewColor = UIColor(red: 174/255, green: 153/255, blue: 90/255, alpha: 1)
+        pickerVC.selectedBtn_simage = UIImage(named: "yesSelectedImage")
         self.present(pickerVC, animated: true, completion: nil)
     }
     
@@ -50,6 +52,8 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         if info["imagedatas"] != nil{
             let phassets = info["imagedatas"] as! Array<PHAsset>
             let vc = YVImageEditorController()
+            YVNavColor = UIColor(red: 174/255, green: 153/255, blue: 90/255, alpha: 1)
+            vc.addPhotoBtnColor = UIColor(red: 174/255, green: 153/255, blue: 90/255, alpha: 0.1)
             vc.phassets = phassets
             vc.cellsize = CGSize(width: 200, height: 200)
             vc.finished = { [weak self] (fileURL,assets) in

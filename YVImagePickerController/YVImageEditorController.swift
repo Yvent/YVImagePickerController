@@ -11,11 +11,16 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
     ///列数
     open var yvcolumns = 4
     public var navView: YVNavigationView!
+    //添加按钮背景色
+    open var addPhotoBtnColor: UIColor! = YVNavColor
+    
     open var tipsLabel: UILabel!
     //删除按钮—normal
     open var closeBtn_nimage: UIImage?
     
     var imageCollV: UICollectionView!
+    
+    
     
     var addPhotoBtn: UIButton!
     open var phassets = Array<PHAsset>()
@@ -77,8 +82,9 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         imageCollV.addGestureRecognizer(longPress)
         addPhotoBtn = UIButton(frame: CGRect(x: 0, y: ScreenHeight-60, width: ScreenWidth, height: 60))
         addPhotoBtn.setTitle("+ 添加照片", for: .normal)
+        addPhotoBtn.setTitleColor(YVNavColor, for: .normal)
         addPhotoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        addPhotoBtn.backgroundColor = YVNavColor
+        addPhotoBtn.backgroundColor = addPhotoBtnColor
         addPhotoBtn.addTarget(self, action: #selector(YVImageEditorController.doaddPhotoBtn), for: .touchUpInside)
         self.view.addSubview(addPhotoBtn)
         

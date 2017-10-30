@@ -188,8 +188,16 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
             self.photoAlbumBtn.setImage(UIImage(named: self.arrowUpName!), for: .normal)
             self.photoAlbumBtn.setImage(UIImage(named: self.arrowDownName!), for: .selected)
         }else{
-            photoAlbumBtn.setTitle("\(assets.keys.first!) ▲", for: .normal)
-            photoAlbumBtn.setTitle("\(assets.keys.first!) ▼", for: .selected)
+            let bundle =  Bundle(for: YVImagePickerController.self)
+            let path = bundle.path(forResource: "YVImagePickerController", ofType: "bundle")
+            let imageBundle =  Bundle(path: path!)
+            let nolImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "arrow_up", ofType: "png"))!)
+            let solImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "arrow_down", ofType: "png"))!)
+            
+            photoAlbumBtn.setImage(nolImage, for: .normal)
+            photoAlbumBtn.setImage(solImage, for: .selected)
+            photoAlbumBtn.setTitle("\(assets.keys.first!)", for: .normal)
+            photoAlbumBtn.setTitle("\(assets.keys.first!)", for: .selected)
         }
         photoAlbumBtn.addTarget(self, action: #selector(YVImagePickerController.didphotoAlbumBtn), for: .touchUpInside)
         photoAlbumBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 120, bottom: 0, right: 0)

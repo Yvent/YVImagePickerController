@@ -122,12 +122,20 @@ open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegat
         
         imageCV.register(YVSplitVideoCell.self, forCellWithReuseIdentifier: "YVVideoEditorViewController")
         imageCV.decelerationRate = UIScrollViewDecelerationRateFast
-        leftBtn = UIImageView(image: UIImage(named: "handle_L"))
+        
+        
+        let bundle =  Bundle(for: YVImagePickerController.self)
+        let path = bundle.path(forResource: "YVImagePickerController", ofType: "bundle")
+        let imageBundle =  Bundle(path: path!)
+        
+        let leftBtnImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "handle_L", ofType: "png"))!)
+        let rightBtnImage = UIImage(contentsOfFile: (imageBundle?.path(forResource: "handle_R", ofType: "png"))!)
+        leftBtn = UIImageView(image: leftBtnImage)
         leftBtn.backgroundColor = UIColor.white
         let panGestureleft = UIPanGestureRecognizer(target: self, action: #selector(YVVideoEditorViewController.handlePanGestureleft(_:)))
         leftBtn.addGestureRecognizer(panGestureleft)
         leftBtn.isUserInteractionEnabled = true
-        rightBtn = UIImageView(image: UIImage(named: "handle_R"))
+        rightBtn = UIImageView(image: rightBtnImage)
         rightBtn.backgroundColor = UIColor.white
         let panGestureright = UIPanGestureRecognizer(target: self, action: #selector(YVVideoEditorViewController.handlePanGestureright(_:)))
         rightBtn.addGestureRecognizer(panGestureright)
@@ -142,11 +150,13 @@ open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegat
         editorW = videoEditorView.frame.width
         let timeStr =  (Float(continuoust)/Float(self.yvvideoAsset.duration.value)*Float(videoTimecopy)).getMMSSFromSS()
         let tipslabelstr = videoTimecopy > 10 ? "00:10" : timeStr
-        tipslabel = UILabel(frame: CGRect(x: imageCollVFrame.origin.x, y: imageCollVFrame.origin.y-50, width: imageCollVFrame.width, height: 40))
+        tipslabel = UILabel(frame: CGRect(x: imageCollVFrame.origin.x, y: imageCollVFrame.origin.y-30, width: imageCollVFrame.width, height: 30))
         tipslabel.textAlignment = .center
         tipslabel.text = tipslabelstr
         tipslabel.textColor = UIColor.gray
-        instructions = UILabel(frame: CGRect(x: imageCollVFrame.origin.x, y: imageCollVFrame.maxY+10, width: imageCollVFrame.width, height: 40))
+        tipslabel.font = UIFont.systemFont(ofSize: 14)
+        instructions = UILabel(frame: CGRect(x: imageCollVFrame.origin.x, y: imageCollVFrame.maxY, width: imageCollVFrame.width, height: 30))
+        instructions.font = UIFont.systemFont(ofSize: 14)
         instructions.textAlignment = .center
         instructions.text = "最多时长10s"
         instructions.textColor = UIColor.gray

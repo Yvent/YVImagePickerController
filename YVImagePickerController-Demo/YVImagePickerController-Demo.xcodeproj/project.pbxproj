@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		426A4D381FA05B4700FCFACE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426A4D371FA05B4700FCFACE /* Launch Screen.storyboard */; };
 		635C7B741F9DEA08005AC3DB /* sssViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C7B731F9DEA08005AC3DB /* sssViewController.swift */; };
 		6379D81E1F95F43400C55ECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D81D1F95F43400C55ECC /* AppDelegate.swift */; };
-		6379D8231F95F43400C55ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8211F95F43400C55ECC /* Main.storyboard */; };
 		6379D8251F95F43400C55ECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8241F95F43400C55ECC /* Assets.xcassets */; };
-		6379D8281F95F43400C55ECC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */; };
 		6379D83D1F95F4C200C55ECC /* MultiSelectImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */; };
 		6379D83E1F95F4C200C55ECC /* SingleSelectionVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */; };
 		6379D83F1F95F4C200C55ECC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379D83A1F95F4C100C55ECC /* ViewController.swift */; };
@@ -22,12 +21,11 @@
 
 /* Begin PBXFileReference section */
 		01E9D687E565C5481D56311C /* Pods-YVImagePickerController-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YVImagePickerController-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YVImagePickerController-Demo/Pods-YVImagePickerController-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		426A4D371FA05B4700FCFACE /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		635C7B731F9DEA08005AC3DB /* sssViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sssViewController.swift; sourceTree = "<group>"; };
 		6379D81A1F95F43400C55ECC /* YVImagePickerController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YVImagePickerController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6379D81D1F95F43400C55ECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6379D8221F95F43400C55ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6379D8241F95F43400C55ECC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6379D8271F95F43400C55ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6379D8291F95F43400C55ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6379D8381F95F4C100C55ECC /* MultiSelectImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectImageVC.swift; sourceTree = "<group>"; };
 		6379D8391F95F4C100C55ECC /* SingleSelectionVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionVideoVC.swift; sourceTree = "<group>"; };
@@ -87,9 +85,8 @@
 				6379D83A1F95F4C100C55ECC /* ViewController.swift */,
 				635C7B731F9DEA08005AC3DB /* sssViewController.swift */,
 				6379D81D1F95F43400C55ECC /* AppDelegate.swift */,
-				6379D8211F95F43400C55ECC /* Main.storyboard */,
+				426A4D371FA05B4700FCFACE /* Launch Screen.storyboard */,
 				6379D8241F95F43400C55ECC /* Assets.xcassets */,
-				6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */,
 				6379D8291F95F43400C55ECC /* Info.plist */,
 			);
 			path = "YVImagePickerController-Demo";
@@ -165,9 +162,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6379D8281F95F43400C55ECC /* LaunchScreen.storyboard in Resources */,
+				426A4D381FA05B4700FCFACE /* Launch Screen.storyboard in Resources */,
 				6379D8251F95F43400C55ECC /* Assets.xcassets in Resources */,
-				6379D8231F95F43400C55ECC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,25 +233,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		6379D8211F95F43400C55ECC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6379D8221F95F43400C55ECC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6379D8261F95F43400C55ECC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6379D8271F95F43400C55ECC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6379D82A1F95F43400C55ECC /* Debug */ = {

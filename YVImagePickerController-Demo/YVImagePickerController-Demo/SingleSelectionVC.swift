@@ -45,6 +45,9 @@ class SingleSelectionImageVC: UIViewController, YVImagePickerControllerDelegate 
         pickerVC.yvcolumns = 5
         pickerVC.yvIsMultiselect = false
         pickerVC.yvdelegate = self
+        pickerVC.topViewColor = UIColor(red: 174/255, green: 153/255, blue: 90/255, alpha: 1)
+        
+      
         self.present(pickerVC, animated: true, completion: nil)
     }
     
