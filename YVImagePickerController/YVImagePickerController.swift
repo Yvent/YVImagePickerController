@@ -343,6 +343,10 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                     return
                 }
                 photoManage.requestAVAsset(forVideo: assets.first!.value[indexPath.row], options: nil) {[weak self] (asset, assmix, info) in
+                    if asset == nil {
+                          self?.addReminder(title: "iCloud云相册的视频，需要您先下载到相册，再重试哦")
+                        return
+                    }
                     if asset as? AVURLAsset != nil {
                         let urlasset = asset as! AVURLAsset
                         DispatchQueue.main.async {
@@ -359,6 +363,10 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
             case .image:
                 photoManage.requestImageData(for: assets.first!.value[indexPath.row], options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
                     DispatchQueue.main.async {
+                        if imagedata == nil {
+                               self?.addReminder(title: "iCloud云相册的照片，需要您先下载到相册，再重试哦")
+                            return
+                        }
                         self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedata": UIImage.init(data: imagedata!) as Any])
                     }
                 })
