@@ -6,23 +6,23 @@
 	<dict>
 		<key>Pods-YVImagePickerController-Demo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>YVImagePickerController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2DD5B2DC7BEE7EE290EFEA8973EC4427</key>
+		<key>63326F22701D195D75F3E70BB0F17B3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D3D98E2D794C29AC59A4DDEB41276DF</key>
+		<key>E0FA446242C2806C424A25307563CDE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

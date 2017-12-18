@@ -14,7 +14,7 @@ Swift 3.0+
 
 Step1
 ````
-pod 'YVImagePickerController' ,'~> 1.0.6'
+pod 'YVImagePickerController' ,'~> 1.0.7'
 ````
 Step2
 在plist文件中加入
@@ -41,6 +41,9 @@ self.present(pickerVC, animated: true, completion: nil)
 | topViewColor | 导航栏背景色 |
 | yvmediaType  | 媒体类型：照片或视频  |
 | yvIsMultiselect | 是否多选，默认单选  |
+| selectedBtn_nimage | 多选时，未选中image(可选)  |
+| selectedBtn_simage | 多选时，选中image(可选)  |
+
 
 实现代理方法 
 ````
@@ -48,4 +51,8 @@ self.present(pickerVC, animated: true, completion: nil)
     
  func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {}
 ````
-我的博客http://www.jianshu.com/p/ae85bcd5ec73
+
+问题
+
+发现bug或好的建议欢迎 [issues](https://github.com/Yvent/YVImagePickerController/issues) or Email Yvente@163.com
+

@@ -1,12 +1,12 @@
 PODS:
-  - YVImagePickerController (1.0.7)
+  - YVImagePickerController (1.0.9)
 
 DEPENDENCIES:
-  - YVImagePickerController (~> 1.0.7)
+  - YVImagePickerController (~> 1.0.9)
 
 SPEC CHECKSUMS:
-  YVImagePickerController: 1b8d7a977aeed3ae137e91657a6e92eb3e7c0714
+  YVImagePickerController: 0209ea8646903f4aedac8d2ba31c11fa50ed25ca
 
-PODFILE CHECKSUM: d6a52bc65c28dc3ef648c6862d8386fe2c99530f
+PODFILE CHECKSUM: 0d8a2ee4abb52a6bbfdf7bc7e7341e5b94bd0f56
 
 COCOAPODS: 1.1.1
