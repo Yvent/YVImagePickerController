@@ -1,7 +1,7 @@
 
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 import Photos
 
 open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource{
@@ -111,7 +111,7 @@ open class YVImageEditorController: UIViewController ,YVNavigationViewDelegate, 
         imageP.yvmediaType = .image
         imageP.selectedAssets = phassets
         imageP.yvdelegate = self
-        imageP.isEditImages = true
+        imageP.isEditContents = true
         self.present(imageP, animated: true, completion: nil)
         
     }

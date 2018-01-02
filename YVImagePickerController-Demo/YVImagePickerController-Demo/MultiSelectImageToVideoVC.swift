@@ -40,7 +40,7 @@ class MultiSelectImageToVideoVC: UIViewController, YVImagePickerControllerDelega
         pickerVC.yvcolumns = 4
         pickerVC.yvIsMultiselect = true
         pickerVC.yvdelegate = self
-        pickerVC.isEditImages = true
+        pickerVC.isEditContents = true
         pickerVC.topViewColor = UIColor(red: 174/255, green: 153/255, blue: 90/255, alpha: 1)
         pickerVC.selectedBtn_simage = UIImage(named: "yesSelectedImage")
         self.present(pickerVC, animated: true, completion: nil)

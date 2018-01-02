@@ -17,3 +17,11 @@ func yvRealHeight() -> CGFloat {
     }
 }
 
+///  Documents路径
+func contentOfDocuments() -> String {
+    return NSHomeDirectory().appending("/Documents/")
+}
+/// 时间戳生成id
+func initId() -> TimeInterval{
+    return Date().timeIntervalSince1970
+}

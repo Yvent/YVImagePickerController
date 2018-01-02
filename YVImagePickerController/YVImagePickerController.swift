@@ -11,7 +11,6 @@ import PhotosUI
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 
-
 public protocol YVImagePickerControllerDelegate: class {
     func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController)
@@ -26,7 +25,6 @@ public enum yvPHAuthorizationStatus : Int {
     case yvdenied
     case yvauthorized
 }
-
 
 open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
     
@@ -46,8 +44,8 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     open  var yvmediaType: yvMediaType = .image
     //是否多选，默认单选
     open  var yvIsMultiselect: Bool! = false
-    //多选时是否跳转到编辑页面并合成幻灯片,默认不编辑
-    open var isEditImages: Bool = false
+    //是否编辑,默认不编辑（直接输出资源）
+    open  var isEditContents: Bool = false
     //多选按钮—normal
     open var selectedBtn_nimage: UIImage?
     //多选按钮—select
@@ -133,6 +131,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         self.photoManage = PHImageManager()
         self.photoOption = PHImageRequestOptions()
         self.photoOption.resizeMode   = .fast
+        self.photoOption.isSynchronous = false
         self.photoOption.deliveryMode = .opportunistic
         //创建一个PHFetchOptions对象检索照片
         let options = PHFetchOptions()
@@ -265,11 +264,22 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     }
     //多选照片是下一步
     @objc func didnextBtn() {
-        if selectedAssets.count != 0 {
-            isEditImages == true ? self.preToEditor(selectedAssets) : self.phassetsToImages(selectedAssets)
+        
+        if yvmediaType == .video {
+            if selectedAssets.count != 0 {
+                self.phassetsToVideoUrls(selectedAssets)
+            }else{
+                self.addReminder(title: "请选择视频")
+            }
         }else{
-            self.addReminder(title: "请选择照片")
+            if selectedAssets.count != 0 {
+                self.phassetsToImageUrls(selectedAssets)
+            }else{
+                self.addReminder(title: "请选择照片")
+            }
+            
         }
+        
     }
     
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -278,7 +288,7 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YVImagePickerCell", for: indexPath) as! YVImagePickerCell
-       
+        
         let asset = assets.first!.value[indexPath.row]
         cell.tag = Int(
             photoManage.requestImage(for: asset, targetSize: pickerPhotoSize, contentMode: .aspectFit, options: photoOption, resultHandler: { (result, info) in
@@ -342,33 +352,24 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
                     self.addReminder(title: "超过5分钟，不能导入")
                     return
                 }
-                photoManage.requestAVAsset(forVideo: assets.first!.value[indexPath.row], options: nil) {[weak self] (asset, assmix, info) in
-                    if asset == nil {
-                          self?.addReminder(title: "iCloud云相册的视频，需要您先下载到相册，再重试哦")
-                        return
-                    }
-                    if asset as? AVURLAsset != nil {
-                        let urlasset = asset as! AVURLAsset
+                self.requestAsset(phasset: assets.first!.value[indexPath.row], finished: { (asset) in
+                    if let urlasset = asset as? AVURLAsset {
                         DispatchQueue.main.async {
-                            self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": urlasset.url])
+                            self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["videodata": urlasset.url])
                         }
                     }else{
-                        YVSplitVideoManager.shared.yvSplitVideo(asset!, videoTimeRange: nil, outUrl: (self?.outputVideoUrl)!, finished: {
+                        YVSplitVideoManager.shared.yvSplitVideo(asset, videoTimeRange: nil, outUrl: (self.outputVideoUrl)!, finished: {
                             DispatchQueue.main.async {
-                                self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["videodata": self?.outputVideoUrl! as Any])
+                                self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["videodata": self.outputVideoUrl! as Any])
                             }
                         })
                     }
-                }
+                    
+                })
             case .image:
-                photoManage.requestImageData(for: assets.first!.value[indexPath.row], options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
-                    DispatchQueue.main.async {
-                        if imagedata == nil {
-                               self?.addReminder(title: "iCloud云相册的照片，需要您先下载到相册，再重试哦")
-                            return
-                        }
-                        self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedata": UIImage.init(data: imagedata!) as Any])
-                    }
+                self.requestData(phasset: assets.first!.value[indexPath.row], finished: { (imageData) in
+                    self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedata": UIImage.init(data: imageData) as Any])
+                    
                 })
             }
         }
@@ -420,20 +421,99 @@ open class YVImagePickerController: UIViewController ,UICollectionViewDelegate,U
         YVLoadinger.shared.show()
         self.view.isUserInteractionEnabled = false
         var yvimages = Array<UIImage>()
+        let group = DispatchGroup()
         for item in phassets{
-            photoManage.requestImageData(for: item, options: nil, resultHandler: { [weak self] (imagedata, str, orientation, hashable) in
-                let image = UIImage.init(data: imagedata!)
-                yvimages.append((image?.fixOrientation())!)
-                if yvimages.count == phassets.count {
-                    DispatchQueue.main.async {
-                        YVLoadinger.shared.dismiss()
-                        self?.view.isUserInteractionEnabled = true
-                        if self?.yvdelegate != nil {
-                            self?.yvdelegate.yvimagePickerController(self!, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
-                        }                    }
-                    return
+            group.enter()
+            self.requestData(phasset: item, finished: { (imageData) in
+                DispatchQueue.main.async {
+                    let image = UIImage.init(data: imageData)
+                    yvimages.append((image?.fixOrientation())!)
                 }
+                group.leave()
             })
+        }
+        
+        group.notify(queue: DispatchQueue.main) {
+            YVLoadinger.shared.dismiss()
+            self.view.isUserInteractionEnabled = true
+            self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["imagedatas": yvimages])
+        }
+    }
+    
+    func phassetsToImageUrls(_ phassets: Array<PHAsset>)  {
+        if isEditContents == true {
+            self.preToEditor(selectedAssets)
+        }else{
+            self.phassetsToImages(selectedAssets)
+        }
+    }
+    
+    
+    func phassetsToVideoUrls(_ phassets: Array<PHAsset>)  {
+        YVLoadinger.shared.show()
+        self.view.isUserInteractionEnabled = false
+        var yvvideos = Array<URL>()
+        let group = DispatchGroup()
+        for item in phassets{
+            group.enter()
+            if isEditContents == true {
+                self.requestAsset(phasset: item, finished: { (asset) in
+                    if let urlasset = asset as? AVURLAsset  {
+                        DispatchQueue.main.async {
+                            yvvideos.append(urlasset.url)
+                        }
+                    }
+                    group.leave()
+                })
+            }else{
+                self.requestExport(phasset: item, finished: { (states, url) in
+                    if states == .completed  {
+                        if let videourl = url{
+                            DispatchQueue.main.async {
+                                yvvideos.append(videourl)
+                            }
+                        }
+                        group.leave()
+                    }
+                })
+            }
+        }
+        group.notify(queue: DispatchQueue.main) {
+            YVLoadinger.shared.dismiss()
+            print("\(yvvideos.count)")
+            self.yvdelegate.yvimagePickerController(self, didFinishPickingMediaWithInfo: ["videodatas": yvvideos])
+        }
+    }
+    
+    /// 导出imagedata
+    func requestData( phasset: PHAsset, finished: @escaping ((_ imagedata: Data)->())) {
+        photoManage.requestImageData(for: phasset, options: nil) { [weak self] (imagedata, str, orientation, info) in
+            if imagedata == nil {
+                self?.addReminder(title: "iCloud云相册的照片，需要您先下载到相册，再重试哦")
+                return
+            }
+            finished(imagedata!)
+        }
+    }
+    /// 导出视频，一般用于持久性储存
+    func requestExport( phasset: PHAsset, finished: @escaping ((_ states: AVAssetExportSessionStatus?, _ outputURL: URL?)->()))  {
+        ///AVAssetExportPresetHighestQuality 高清
+        photoManage.requestExportSession(forVideo: phasset, options: nil, exportPreset: AVAssetExportPresetHighestQuality) { (exportSession, info) in
+            exportSession?.outputURL = URL(fileURLWithPath: contentOfDocuments()+"\(initId()).mp4")
+            exportSession?.outputFileType = AVFileTypeQuickTimeMovie
+            exportSession?.exportAsynchronously(completionHandler: {
+                finished(exportSession?.status, exportSession?.outputURL)
+            })
+        }
+    }
+    /// 请求获得 AVAsset，一般用于可编辑
+    func requestAsset( phasset: PHAsset, finished: @escaping ((_ asset: AVAsset)->()))  {
+        photoManage.requestAVAsset(forVideo: phasset, options: nil) { [weak self] (asset, amix, info) in
+            if asset == nil {
+                self?.addReminder(title: "iCloud云相册的视频，需要您先下载到相册，再重试哦")
+                return
+            }
+            finished(asset!)
         }
     }
     //返回 PHAsset

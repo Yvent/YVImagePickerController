@@ -1,6 +1,6 @@
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 import Photos
 
 open class YVVideoEditorViewController: UIViewController,YVNavigationViewDelegate ,UICollectionViewDelegate,UICollectionViewDataSource{

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import YVImagePickerController
 class MultiSelectImageVC: UIViewController, YVImagePickerControllerDelegate {
     
@@ -62,22 +63,53 @@ class MultiSelectImageVC: UIViewController, YVImagePickerControllerDelegate {
         pickerVC.yvcolumns = 4
         pickerVC.yvIsMultiselect = true
         pickerVC.yvdelegate = self
-        pickerVC.isEditImages = false
+        pickerVC.isEditContents = false
 
         self.present(pickerVC, animated: true, completion: nil)
     }
     
     func yvimagePickerController(_ picker: YVImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
+    
+//        if info["videodatas"] != nil{
+//            let urls = info["videodatas"] as! Array<URL>
+//            for url in urls {
+//                if   let image = YVGetVodeiThumbnail(url: url) {
+//                    self.images.append(image)
+//                }
+//            }
+//            self.showImagesView.reloadData()
+//        }
+        
+        
         
         if info["imagedatas"] != nil{
             let images = info["imagedatas"] as! Array<UIImage>
+            
             self.images = images
             self.showImagesView.reloadData()
         }
     }
     func yvimagePickerControllerDidCancel(_ picker: YVImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //获取视频缩略图
+    func YVGetVodeiThumbnail(url: URL) -> UIImage?{
+        
+        let optDict = [AVURLAssetPreferPreciseDurationAndTimingKey : NSNumber(value: false)]
+        let firstAsset = AVURLAsset(url: url, options: optDict)
+        let imageGenerator: AVAssetImageGenerator  = AVAssetImageGenerator(asset: firstAsset)
+        let time: CMTime = CMTimeMake(1, firstAsset.duration.timescale)
+        do {
+            let cgImage =  try imageGenerator.copyCGImage(at: time, actualTime: nil)
+            let image = UIImage(cgImage: cgImage)
+        
+            return image
+        } catch {
+            print("error")
+            return nil
+        }
     }
     
 }
